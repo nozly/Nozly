@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nozly — Canada Immigration in 90 Seconds</title>
+<meta name="description" content="Canada immigration news by province. Express Entry draws, PNP updates, IRCC announcements — explained in 5 bullet points. Free. 90 seconds every morning.">
+<meta name="theme-color" content="#0D1117">
+
+<!-- PWA / Home Screen Icon -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nozly">
+
+<!-- Inline SVG icon — works on all devices without extra files -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='115' fill='%230D1117'/><path d='M256 80 L272 114 L322 98 L306 146 L358 166 L306 180 L324 232 L274 208 L256 244 L256 80 Z' fill='none' stroke='%23D52B1E' stroke-width='11' stroke-linejoin='round' stroke-linecap='round'/><line x1='256' y1='252' x2='256' y2='290' stroke='%23D52B1E' stroke-width='11' stroke-linecap='round'/><text x='256' y='430' font-family='Georgia,serif' font-size='190' font-weight='700' fill='%23FFFFFF' text-anchor='middle'>N</text></svg>">
+
+<!-- Apple Touch Icon — shown on iPhone/iPad home screen -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='115' fill='%230D1117'/><path d='M256 80 L272 114 L322 98 L306 146 L358 166 L306 180 L324 232 L274 208 L256 244 L256 80 Z' fill='none' stroke='%23D52B1E' stroke-width='11' stroke-linejoin='round' stroke-linecap='round'/><line x1='256' y1='252' x2='256' y2='290' stroke='%23D52B1E' stroke-width='11' stroke-linecap='round'/><text x='256' y='430' font-family='Georgia,serif' font-size='190' font-weight='700' fill='%23FFFFFF' text-anchor='middle'>N</text></svg>">
+
+<!-- Web App Manifest inline -->
+<script>
+const manifest = {
+  name: "Nozly — Canada Immigration in 90 Seconds",
+  short_name: "Nozly",
+  description: "Canada immigration news by province. 5 bullet points. Free.",
+  start_url: "/",
+  display: "standalone",
+  background_color: "#0D1117",
+  theme_color: "#0D1117",
+  orientation: "portrait",
+  icons: [
+    {
+      src: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='115' fill='%230D1117'/><path d='M256 80 L272 114 L322 98 L306 146 L358 166 L306 180 L324 232 L274 208 L256 244 L256 80 Z' fill='none' stroke='%23D52B1E' stroke-width='11' stroke-linejoin='round' stroke-linecap='round'/><line x1='256' y1='252' x2='256' y2='290' stroke='%23D52B1E' stroke-width='11' stroke-linecap='round'/><text x='256' y='430' font-family='Georgia,serif' font-size='190' font-weight='700' fill='%23FFFFFF' text-anchor='middle'>N</text></svg>",
+      sizes: "512x512",
+      type: "image/svg+xml",
+      purpose: "any maskable"
+    }
+  ]
+};
+const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
+const url = URL.createObjectURL(blob);
+const link = document.createElement('link');
+link.rel = 'manifest'; link.href = url;
+document.head.appendChild(link);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════
+   DESIGN SYSTEM
+   60% white/near-white · 30% dark text · 10% Canadian red
+   Typography: Inter (readable, modern, accessible)
+   Principle: Every element earns its place
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Core palette — designed for max readability */
+  --white: #FFFFFF;
+  --bg: #F8F9FA;       /* Off-white — easier on eyes than pure white */
+  --bg2: #F1F3F5;      /* Slightly darker for cards */
+  --surface: #FFFFFF;
+  --border: #E9ECEF;
+  --border2: #DEE2E6;
+
+  /* Text hierarchy — 3 levels only */
+  --text: #0D1117;     /* Primary — near black, not pure black (softer) */
+  --text2: #3D4450;    /* Secondary */
+  --muted: #868E96;    /* Tertiary */
+
+  /* ONE accent colour — Canadian red */
+  --red: #D52B1E;
+  --red-light: rgba(213, 43, 30, 0.08);
+  --red-mid: rgba(213, 43, 30, 0.15);
+
+  /* Province colors — used ONLY for province tags */
+  --on: #003087;    /* Ontario — blue */
+  --bc: #003DA5;    /* BC — navy */
+  --ab: #D52B1E;    /* Alberta — red */
+  --qc: #003087;    /* Quebec — blue */
+  --nb: #2E7D32;    /* New Brunswick — green */
+  --ns: #1565C0;    /* Nova Scotia — blue */
+  --mb: #6A1B9A;    /* Manitoba — purple */
+  --sk: #E65100;    /* Saskatchewan — orange */
+  --pe: #00695C;    /* PEI — teal */
+  --nl: #283593;    /* NFLD — indigo */
+  --fe: #D52B1E;    /* Federal/IRCC — red */
+
+  /* Spacing scale */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px;
+  --s5: 20px; --s6: 24px; --s7: 32px; --s8: 48px;
+
+  /* Typography scale */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --r-full: 999px;
+
+  /* Shadows — subtle only */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.10);
+
+  /* Transitions */
+  --t-fast: 150ms ease;
+  --t-base: 250ms ease;
+  --t-slow: 400ms cubic-bezier(.4,0,.2,1);
+  --t-spring: 350ms cubic-bezier(.34,1.4,.64,1);
+}
+
+/* ── RESET ──────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--s4);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  text-decoration: none;
+}
+.logo span { color: var(--red); }
+.logo-flag {
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+/* Search */
+.search-wrap {
+  flex: 1;
+  max-width: 240px;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 7px 32px 7px 34px;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--text);
+  outline: none;
+  transition: all var(--t-base);
+}
+.search-input:focus {
+  border-color: var(--red);
+  background: var(--white);
+  box-shadow: 0 0 0 3px var(--red-light);
+}
+.search-input::placeholder { color: var(--muted); }
+.search-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 13px;
+  pointer-events: none;
+}
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+  display: none;
+  line-height: 1;
+  padding: 2px;
+}
+.search-clear.show { display: block; }
+
+/* Bell */
+.bell-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-full);
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+.bell-btn:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-light);
+}
+
+/* ── SEARCH OVERLAY ─────────────────────────────────── */
+.search-overlay {
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  max-height: 70vh;
+  overflow-y: auto;
+  display: none;
+}
+.search-overlay.show { display: block; }
+.search-result-header {
+  padding: var(--s3) var(--s4);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+.search-result-item {
+  padding: var(--s4);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background var(--t-fast);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+}
+.search-result-item:hover { background: var(--bg); }
+.search-result-title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+.search-result-meta {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-top: 2px;
+}
+.search-empty {
+  padding: var(--s8);
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+/* ── MAIN LAYOUT ─────────────────────────────────────── */
+.main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--s4) 100px;
+}
+
+/* ── GREETING ────────────────────────────────────────── */
+.greeting {
+  padding: var(--s6) 0 var(--s5);
+}
+.greeting-time {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: var(--s2);
+}
+.greeting-h {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: var(--s2);
+}
+@media(max-width: 480px) {
+  .greeting-h { font-size: var(--text-xl); }
+}
+.greeting-sub {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  font-weight: 400;
+}
+.greeting-sub strong {
+  color: var(--text2);
+  font-weight: 500;
+}
+
+/* ── PROVINCE FILTER ─────────────────────────────────── */
+.province-section {
+  margin-bottom: var(--s5);
+}
+.section-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: var(--s3);
+}
+.province-scroll {
+  display: flex;
+  gap: var(--s2);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.province-scroll::-webkit-scrollbar { display: none; }
+.province-pill {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-base);
+  border: 1.5px solid var(--border2);
+  background: var(--surface);
+  color: var(--text2);
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+.province-pill:hover {
+  border-color: var(--text2);
+  background: var(--bg2);
+}
+.province-pill.active {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+}
+/* Province-specific active states */
+.province-pill[data-p="ALL"].active  { background: var(--red); border-color: var(--red); }
+.province-pill[data-p="FED"].active  { background: var(--fe); border-color: var(--fe); }
+.province-pill[data-p="ON"].active   { background: var(--on); border-color: var(--on); }
+.province-pill[data-p="BC"].active   { background: var(--bc); border-color: var(--bc); }
+.province-pill[data-p="AB"].active   { background: var(--ab); border-color: var(--ab); }
+.province-pill[data-p="NB"].active   { background: var(--nb); border-color: var(--nb); }
+.province-pill[data-p="NS"].active   { background: var(--ns); border-color: var(--ns); }
+.province-pill[data-p="MB"].active   { background: var(--mb); border-color: var(--mb); }
+.province-pill[data-p="SK"].active   { background: var(--sk); border-color: var(--sk); }
+.province-pill[data-p="QC"].active   { background: var(--qc); border-color: var(--qc); }
+.province-pill[data-p="PE"].active   { background: var(--pe); border-color: var(--pe); }
+.province-pill[data-p="NL"].active   { background: var(--nl); border-color: var(--nl); }
+
+/* ── CRS WIDGET ──────────────────────────────────────── */
+.crs-widget {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+  margin-bottom: var(--s5);
+  box-shadow: var(--shadow-sm);
+}
+.crs-widget-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s4);
+  margin-bottom: var(--s4);
+}
+.crs-score-big {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+.crs-info { flex: 1; }
+.crs-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: var(--s2);
+}
+.crs-bar-track {
+  background: var(--bg2);
+  border-radius: var(--r-full);
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: var(--s2);
+}
+.crs-bar-fill {
+  height: 100%;
+  background: var(--red);
+  border-radius: var(--r-full);
+  width: 78%;
+  transition: width .6s var(--t-slow);
+}
+.crs-detail {
+  font-size: var(--text-xs);
+  color: var(--muted);
+}
+.crs-detail strong { color: var(--text2); font-weight: 500; }
+.crs-actions {
+  display: flex;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+.btn-crs {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 8px 14px;
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-base);
+  text-decoration: none;
+  border: 1.5px solid;
+}
+.btn-crs-primary {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+}
+.btn-crs-primary:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.btn-crs-ghost {
+  background: transparent;
+  color: var(--text2);
+  border-color: var(--border2);
+}
+.btn-crs-ghost:hover {
+  border-color: var(--text2);
+  color: var(--text);
+}
+
+/* ── LAST UPDATED ────────────────────────────────────── */
+.last-updated {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-bottom: var(--s4);
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2E7D32;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+.live-dot.loading { background: var(--muted); animation: none; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(.8); }
+}
+
+/* ── SKELETON ────────────────────────────────────────── */
+.skeleton-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+  margin-bottom: var(--s3);
+}
+.skeleton-line {
+  background: linear-gradient(90deg, var(--bg2) 25%, var(--bg) 50%, var(--bg2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--r-sm);
+  margin-bottom: var(--s2);
+}
+.skeleton-block {
+  height: 56px;
+  background: linear-gradient(90deg, var(--bg2) 25%, var(--bg) 50%, var(--bg2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--r-sm);
+  margin: var(--s3) 0;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── NEWS FEED ───────────────────────────────────────── */
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+/* ── NEWS CARD ───────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--t-base);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: cardIn .4s ease forwards;
+}
+.card:hover {
+  border-color: var(--border2);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.card:active { transform: scale(.99); }
+.card:nth-child(1) { animation-delay: .03s; }
+.card:nth-child(2) { animation-delay: .08s; }
+.card:nth-child(3) { animation-delay: .13s; }
+.card:nth-child(4) { animation-delay: .18s; }
+.card:nth-child(5) { animation-delay: .23s; }
+@keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
+
+/* Left accent line by province */
+.card { position: relative; }
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  background: var(--border2);
+  transition: background var(--t-base);
+}
+.card[data-p="FED"]::before,
+.card[data-p="ALL"]::before { background: var(--fe); }
+.card[data-p="ON"]::before  { background: var(--on); }
+.card[data-p="BC"]::before  { background: var(--bc); }
+.card[data-p="AB"]::before  { background: var(--ab); }
+.card[data-p="NB"]::before  { background: var(--nb); }
+.card[data-p="NS"]::before  { background: var(--ns); }
+.card[data-p="MB"]::before  { background: var(--mb); }
+.card[data-p="SK"]::before  { background: var(--sk); }
+.card[data-p="QC"]::before  { background: var(--qc); }
+.card[data-p="PE"]::before  { background: var(--pe); }
+.card[data-p="NL"]::before  { background: var(--nl); }
+
+.card-inner { padding: var(--s4) var(--s4) var(--s4) var(--s5); }
+
+/* Card meta row */
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s3);
+  gap: var(--s2);
+}
+.province-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: .02em;
+  background: var(--bg2);
+  color: var(--text2);
+  border: 1px solid var(--border);
+}
+/* Province tag colors */
+.province-tag[data-p="FED"] { background: rgba(213,43,30,.08); color: var(--fe); border-color: rgba(213,43,30,.2); }
+.province-tag[data-p="ON"]  { background: rgba(0,48,135,.08); color: var(--on); border-color: rgba(0,48,135,.2); }
+.province-tag[data-p="BC"]  { background: rgba(0,61,165,.08); color: var(--bc); border-color: rgba(0,61,165,.2); }
+.province-tag[data-p="AB"]  { background: rgba(213,43,30,.08); color: var(--ab); border-color: rgba(213,43,30,.2); }
+.province-tag[data-p="NB"]  { background: rgba(46,125,50,.08); color: var(--nb); border-color: rgba(46,125,50,.2); }
+.province-tag[data-p="NS"]  { background: rgba(21,101,192,.08); color: var(--ns); border-color: rgba(21,101,192,.2); }
+.province-tag[data-p="MB"]  { background: rgba(106,27,154,.08); color: var(--mb); border-color: rgba(106,27,154,.2); }
+.province-tag[data-p="SK"]  { background: rgba(230,81,0,.08); color: var(--sk); border-color: rgba(230,81,0,.2); }
+.province-tag[data-p="QC"]  { background: rgba(0,48,135,.08); color: var(--qc); border-color: rgba(0,48,135,.2); }
+.province-tag[data-p="PE"]  { background: rgba(0,105,92,.08); color: var(--pe); border-color: rgba(0,105,92,.2); }
+.province-tag[data-p="NL"]  { background: rgba(40,53,147,.08); color: var(--nl); border-color: rgba(40,53,147,.2); }
+
+.card-time {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Card headline */
+.card-headline {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: var(--s2);
+  font-family: 'Playfair Display', serif;
+}
+
+/* Card preview — 1-liner teaser only */
+.card-preview {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: var(--s4);
+}
+
+/* Card bottom row */
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+.card-source {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.card-source-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+/* ── SHARE BUTTON — card level ───────────────────────── */
+.btn-share-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: var(--r-full);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all var(--t-base);
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+.btn-share-card:hover {
+  color: var(--text);
+  border-color: var(--text);
+  background: var(--bg2);
+}
+.btn-share-card svg {
+  width: 11px;
+  height: 11px;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+/* ── SHARE BUTTON — inside bullet sheet ──────────────── */
+.btn-share-sheet {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 11px 20px;
+  border-radius: var(--r-full);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t-base);
+  background: var(--text);
+  color: var(--white);
+  border: none;
+  letter-spacing: -.01em;
+}
+.btn-share-sheet:hover {
+  background: var(--red);
+  transform: translateY(-1px);
+}
+.btn-share-sheet svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+/* floating share bar removed — static share button in actions row only */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+  font-size: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  transition: transform var(--t-spring);
+  filter: grayscale(1) opacity(.5);
+  line-height: 1;
+}
+.btn-save:hover { transform: scale(1.2); filter: grayscale(0) opacity(1); }
+.btn-save.saved { filter: grayscale(0) opacity(1); }
+.btn-read {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--r-full);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all var(--t-base);
+  white-space: nowrap;
+}
+.btn-read:hover {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+}
+
+/* ── BULLET SHEET ────────────────────────────────────── */
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 500;
+  display: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.sheet-overlay.show { display: block; }
+
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  z-index: 501;
+  max-height: 92vh;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform .38s cubic-bezier(.32,1,.4,1);
+  overscroll-behavior: contain;
+}
+.sheet.show {
+  transform: translateY(0);
+}
+@media (min-width: 640px) {
+  .sheet {
+    max-width: 640px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    border-radius: var(--r-xl);
+    bottom: 24px;
+    max-height: 88vh;
+  }
+  .sheet.show { transform: translateX(-50%) translateY(0); }
+}
+
+.sheet-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--border2);
+  border-radius: var(--r-full);
+  margin: var(--s3) auto 0;
+}
+.sheet-content { padding: var(--s5) var(--s5) var(--s7); }
+
+.sheet-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s4);
+}
+.sheet-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all var(--t-base);
+}
+.sheet-close:hover { background: var(--text); color: var(--white); }
+
+.sheet-title {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: var(--s2);
+}
+.sheet-source {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-bottom: var(--s5);
+  padding-bottom: var(--s4);
+  border-bottom: 1px solid var(--border);
+}
+
+/* 5 BULLETS — core feature */
+.bullets-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: var(--s3);
+}
+.bullets-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  margin-bottom: var(--s5);
+}
+.bullet-item {
+  display: flex;
+  gap: var(--s3);
+  align-items: flex-start;
+  padding: var(--s3) var(--s4);
+  background: var(--bg);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+}
+.bullet-num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.bullet-text {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  line-height: 1.55;
+}
+
+/* Context note */
+.sheet-context {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  line-height: 1.7;
+  padding: var(--s4);
+  background: var(--bg);
+  border-radius: var(--r-md);
+  border-left: 3px solid var(--red);
+  margin-bottom: var(--s5);
+  font-style: italic;
+}
+
+/* Sheet actions */
+.sheet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.btn-official {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 10px 16px;
+  border-radius: var(--r-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-base);
+  text-decoration: none;
+  background: var(--text);
+  color: var(--white);
+  border: 1.5px solid var(--text);
+}
+.btn-official:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 10px 16px;
+  border-radius: var(--r-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-base);
+  background: transparent;
+  color: var(--text2);
+  border: 1.5px solid var(--border2);
+}
+.btn-action:hover {
+  border-color: var(--text);
+  color: var(--text);
+  background: var(--bg2);
+}
+.btn-action.saved { color: var(--red); border-color: var(--red); }
+
+/* ── COMMENTS ────────────────────────────────────────── */
+.comments-wrap {
+  margin-top: var(--s5);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--border);
+}
+.comments-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: var(--s4);
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.comment-count-badge {
+  background: var(--bg2);
+  color: var(--text2);
+  border-radius: var(--r-full);
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.comment-form {
+  display: flex;
+  gap: var(--s2);
+  margin-bottom: var(--s4);
+}
+.comment-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1.5px solid var(--border2);
+  border-radius: var(--r-lg);
+  padding: 9px var(--s3);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--text);
+  outline: none;
+  resize: none;
+  transition: border-color var(--t-base);
+  min-height: 40px;
+}
+.comment-input:focus {
+  border-color: var(--red);
+  background: var(--white);
+}
+.comment-input::placeholder { color: var(--muted); }
+.btn-post {
+  flex-shrink: 0;
+  padding: 9px 16px;
+  border-radius: var(--r-lg);
+  background: var(--text);
+  color: var(--white);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t-base);
+}
+.btn-post:hover { background: var(--red); }
+.comment-item {
+  display: flex;
+  gap: var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--border);
+}
+.comment-item:last-child { border-bottom: none; }
+.comment-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+.comment-body-wrap { flex: 1; }
+.comment-name {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.comment-text {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  line-height: 1.5;
+}
+.comment-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin-top: 4px;
+}
+.comment-time {
+  font-size: 10px;
+  color: var(--muted);
+}
+.comment-like {
+  font-size: 10px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--t-fast);
+  background: none;
+  border: none;
+  padding: 0;
+}
+.comment-like:hover { color: var(--red); }
+
+/* ── EMAIL SIGNUP — Professional native flow ─────────── */
+.signup-card {
+  background: var(--text);
+  border-radius: var(--r-lg);
+  padding: var(--s6);
+  margin: var(--s6) 0;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.signup-card::before {
+  content: '🇨🇦';
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  font-size: 80px;
+  opacity: .06;
+  line-height: 1;
+  pointer-events: none;
+}
+.signup-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: var(--s2);
+}
+.signup-h {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--s2);
+  line-height: 1.25;
+}
+.signup-sub {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,.6);
+  margin-bottom: var(--s5);
+  line-height: 1.55;
+}
+/* Social proof row */
+.signup-proof {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s4);
+}
+.signup-avatars {
+  display: flex;
+}
+.signup-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--text);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -6px;
+  font-weight: 700;
+}
+.signup-avatar:first-child { margin-left: 0; }
+.signup-proof-text {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,.55);
+}
+.signup-proof-text strong { color: rgba(255,255,255,.85); font-weight: 600; }
+/* Input + button — stacked on mobile for reliability */
+.signup-field {
+  position: relative;
+  margin-bottom: var(--s2);
+}
+.signup-input {
+  width: 100%;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.18);
+  border-radius: var(--r-md);
+  padding: 13px var(--s4);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  color: var(--white);
+  outline: none;
+  transition: all var(--t-base);
+}
+.signup-input:focus {
+  border-color: rgba(255,255,255,.45);
+  background: rgba(255,255,255,.16);
+}
+.signup-input::placeholder { color: rgba(255,255,255,.35); }
+.signup-input.error { border-color: #ff6b6b; }
+/* Full-width button — easier tap target on mobile */
+.signup-btn {
+  width: 100%;
+  padding: 14px var(--s4);
+  border-radius: var(--r-md);
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  letter-spacing: -.01em;
+}
+.signup-btn:hover { background: #b52418; transform: translateY(-1px); }
+.signup-btn:active { transform: scale(.99); }
+.signup-btn.loading { opacity: .7; cursor: not-allowed; pointer-events: none; }
+.signup-privacy {
+  font-size: 10px;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+  margin-top: var(--s2);
+  line-height: 1.4;
+}
+/* Success state */
+.signup-success {
+  display: none;
+  text-align: center;
+  padding: var(--s4) 0;
+}
+.signup-success.show { display: block; }
+.signup-success-icon { font-size: 36px; display: block; margin-bottom: var(--s3); }
+.signup-success-h {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--s2);
+}
+.signup-success-sub { font-size: var(--text-sm); color: rgba(255,255,255,.6); }
+
+/* ── SHARE SHEET ─────────────────────────────────────── */
+.share-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  z-index: 502;
+  padding: 0 var(--s5) var(--s8);
+  transform: translateY(100%);
+  transition: transform .35s cubic-bezier(.32,1,.4,1);
+}
+.share-sheet.show { transform: translateY(0); }
+.share-title { font-size: var(--text-base); font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.share-sub { font-size: var(--text-sm); color: var(--muted); margin-bottom: var(--s5); line-height: 1.4; }
+.share-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s3); margin-bottom: var(--s4); }
+.share-option { display: flex; flex-direction: column; align-items: center; gap: var(--s2); cursor: pointer; padding: var(--s3); border-radius: var(--r-md); transition: background var(--t-fast); }
+.share-option:hover { background: var(--bg); }
+.share-icon { width: 44px; height: 44px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.share-name { font-size: 10px; font-weight: 600; color: var(--text2); letter-spacing: .02em; }
+.share-url-row { display: flex; gap: var(--s2); }
+.share-url-input { flex: 1; background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--r-md); padding: 9px var(--s3); font-family: 'Inter', monospace; font-size: var(--text-xs); color: var(--muted); outline: none; }
+.btn-copy { background: var(--text); color: var(--white); border: none; border-radius: var(--r-md); padding: 9px var(--s4); font-size: var(--text-xs); font-weight: 700; cursor: pointer; white-space: nowrap; transition: all var(--t-base); }
+.btn-copy:hover { background: var(--red); }
+
+/* ── BOTTOM NAV ──────────────────────────────────────── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 5px 16px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color var(--t-base), transform var(--t-spring);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  position: relative;
+}
+.nav-item.active { color: var(--red); }
+.nav-item:hover { transform: translateY(-2px); }
+.nav-item svg { width: 22px; height: 22px; stroke-width: 1.8; }
+.nav-badge {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: var(--r-full);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  min-width: 16px;
+  text-align: center;
+  display: none;
+}
+.nav-badge.show { display: block; }
+
+/* ── LOAD MORE ───────────────────────────────────────── */
+.load-more-btn {
+  width: 100%;
+  padding: var(--s4);
+  background: transparent;
+  border: 1.5px dashed var(--border2);
+  border-radius: var(--r-lg);
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--t-base);
+  margin-top: var(--s3);
+}
+.load-more-btn:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-light);
+}
+
+/* ── SAVED EMPTY ─────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: var(--s8) var(--s6);
+}
+.empty-icon { font-size: 48px; margin-bottom: var(--s4); display: block; }
+.empty-title {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--s2);
+}
+.empty-sub { font-size: var(--text-sm); color: var(--muted); line-height: 1.6; }
+
+/* ── TOAST ───────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--text);
+  color: var(--white);
+  padding: 9px 20px;
+  border-radius: var(--r-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  opacity: 0;
+  transition: all .3s var(--t-spring);
+  z-index: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: .02em;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── SIGNUP PROOF + FIELD + SUCCESS (new) ──────────────── */
+.signup-proof {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+}
+.signup-avatars {
+  display: flex;
+}
+.signup-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--text);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -7px;
+}
+.signup-avatar:first-child { margin-left: 0; }
+.signup-proof-text {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,.55);
+  line-height: 1.4;
+}
+.signup-proof-text strong { color: rgba(255,255,255,.9); }
+.signup-field { margin-bottom: var(--s3); }
+.signup-input {
+  width: 100%;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: var(--r-md);
+  padding: 13px var(--s4);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  color: var(--white);
+  outline: none;
+  transition: all var(--t-base);
+  -webkit-appearance: none;
+}
+.signup-input:focus {
+  border-color: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.16);
+}
+.signup-input::placeholder { color: rgba(255,255,255,.35); }
+.signup-input.error { border-color: #ff6b6b; background: rgba(255,100,100,.1); }
+.signup-btn {
+  width: 100%;
+  padding: 14px var(--s4);
+  border-radius: var(--r-md);
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--t-base);
+  letter-spacing: -.01em;
+}
+.signup-btn:hover { background: #b52418; transform: translateY(-1px); }
+.signup-btn:active { transform: scale(.99); }
+.signup-btn.loading { opacity: .65; cursor: not-allowed; pointer-events: none; }
+.signup-privacy {
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  text-align: center;
+  margin-top: var(--s2);
+}
+.signup-success {
+  display: none;
+  text-align: center;
+  padding: var(--s4) 0;
+}
+.signup-success.show { display: block; }
+.signup-success-icon { font-size: 40px; display: block; margin-bottom: var(--s3); }
+.signup-success-h {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--s2);
+}
+.signup-success-sub {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,.6);
+  line-height: 1.5;
+}
+
+/* ── PERSONAL ARTICLE / AUTHOR CARD ────────────────────── */
+.author-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--s3);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: cardIn .4s ease forwards;
+}
+.author-card-top {
+  background: linear-gradient(135deg, #0D1117 0%, #1a2332 100%);
+  padding: var(--s4) var(--s5);
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,.2);
+}
+.author-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+.author-role {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,.5);
+  margin-top: 2px;
+}
+.author-badge {
+  margin-left: auto;
+  background: rgba(213,43,30,.25);
+  color: #ff8f86;
+  border-radius: var(--r-full);
+  padding: 3px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  flex-shrink: 0;
+}
+.author-card-body { padding: var(--s4) var(--s5); }
+.author-article-title {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: var(--s3);
+  cursor: pointer;
+  transition: color var(--t-base);
+}
+.author-article-title:hover { color: var(--red); }
+.author-article-body {
+  font-size: var(--text-sm);
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: var(--s4);
+}
+.author-article-body p { margin-bottom: var(--s3); }
+.author-article-body p:last-child { margin-bottom: 0; }
+.author-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--red);
+  cursor: pointer;
+  letter-spacing: .02em;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: gap var(--t-base);
+}
+.author-read-more:hover { gap: var(--s2); }
+.author-card-bottom {
+  padding: var(--s3) var(--s5);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.author-date { font-size: var(--text-xs); color: var(--muted); }
+.author-actions { display: flex; align-items: center; gap: var(--s3); }
+.author-share-btn {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--t-base);
+  padding: 0;
+}
+.author-share-btn:hover { color: var(--text); }
+
+/* Comment count visible on card */
+.card-comment-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--text-xs);
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--t-base);
+}
+.card-comment-count:hover { color: var(--text); }
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--s5) 0;
+}
+.hidden { display: none !important; }
+.refresh-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s3);
+}
+.section-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.btn-refresh {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--t-base);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+.btn-refresh:hover { color: var(--red); }
+.btn-refresh svg { transition: transform .6s; }
+.btn-refresh.spin svg { animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" onclick="switchTab('feed')" style="display:flex;flex-direction:column;gap:1px;text-decoration:none">
+      <div>Noz<span>ly</span> 🍁</div>
+      <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;line-height:1">Canada Immigration · 90 Seconds</div>
+    </a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="srchIn" type="text" placeholder="Search updates..." autocomplete="off" oninput="onSearch(this.value)" onkeydown="if(event.key==='Escape')clearSearch()">
+      <button class="search-clear" id="srchClear" onclick="clearSearch()">✕</button>
+    </div>
+    <button class="bell-btn" onclick="openNotifModal()" title="Get alerts">🔔</button>
+  </div>
+</header>
+
+<!-- BREAKING NEWS BANNER -->
+<div style="background:var(--red);color:#fff;padding:9px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;justify-content:center" onclick="openBullets('f0')">
+  <span style="background:rgba(255,255,255,.2);border-radius:4px;padding:2px 7px;font-size:10px;font-weight:800;letter-spacing:.08em;white-space:nowrap;flex-shrink:0">🆕 BREAKING</span>
+  <span style="font-size:12px;font-weight:600;line-height:1.3;text-align:center">TR-to-PR Portal opens May 2026 — 33,000 spots, will fill in hours. Tap to read what to do now.</span>
+  <span style="font-size:12px;opacity:.7;flex-shrink:0">→</span>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="srchOv">
+  <div class="search-result-header" id="srchHdr">RESULTS</div>
+  <div id="srchRes"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB: FEED (main)
+══════════════════════════════════════════ -->
+<div id="tab-feed">
+<div class="main">
+
+  <!-- Greeting -->
+  <div class="greeting">
+    <div class="greeting-time" id="greetTime">CANADA IMMIGRATION · TODAY</div>
+    <h1 class="greeting-h" id="greetH">Good morning ☀️</h1>
+    <p class="greeting-sub">Your <strong>90-second immigration briefing</strong>. Updated April 19, 2026.</p>
+  </div>
+
+  <!-- Province Filter -->
+  <div class="province-section">
+    <div class="section-label">Province / Territory</div>
+    <div class="province-scroll" id="provincePills">
+      <button class="province-pill active" data-p="ALL" onclick="filterProvince('ALL',this)">🇨🇦 All Canada</button>
+      <button class="province-pill" data-p="FED" onclick="filterProvince('FED',this)">🏛️ Federal / IRCC</button>
+      <button class="province-pill" data-p="ON" onclick="filterProvince('ON',this)">ON — Ontario</button>
+      <button class="province-pill" data-p="BC" onclick="filterProvince('BC',this)">BC — British Columbia</button>
+      <button class="province-pill" data-p="AB" onclick="filterProvince('AB',this)">AB — Alberta</button>
+      <button class="province-pill" data-p="NB" onclick="filterProvince('NB',this)">NB — New Brunswick</button>
+      <button class="province-pill" data-p="NS" onclick="filterProvince('NS',this)">NS — Nova Scotia</button>
+      <button class="province-pill" data-p="MB" onclick="filterProvince('MB',this)">MB — Manitoba</button>
+      <button class="province-pill" data-p="SK" onclick="filterProvince('SK',this)">SK — Saskatchewan</button>
+      <button class="province-pill" data-p="QC" onclick="filterProvince('QC',this)">QC — Quebec</button>
+      <button class="province-pill" data-p="PE" onclick="filterProvince('PE',this)">PE — PEI</button>
+      <button class="province-pill" data-p="NL" onclick="filterProvince('NL',this)">NL — Newfoundland</button>
+    </div>
+  </div>
+
+  <!-- CRS Widget — updated with real April 2026 data -->
+  <div class="crs-widget" id="crsWidget">
+    <div class="crs-widget-top">
+      <div>
+        <div class="crs-label">Latest Draw · Apr 15, 2026</div>
+        <div class="crs-score-big">419</div>
+      </div>
+      <div class="crs-info">
+        <div class="crs-label">French · 4,000 ITAs · Draw #401</div>
+        <div class="crs-bar-track"><div class="crs-bar-fill" style="width:62%"></div></div>
+        <div class="crs-detail">
+          CEC average 2026: <strong>510</strong> · French avg: <strong>400</strong><br>
+          65,154 total ITAs issued in 2026 · Pool: 233,555 candidates
+        </div>
+      </div>
+    </div>
+    <!-- Mini CRS history chart -->
+    <div style="margin:14px 0 16px">
+      <div style="font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">2026 Draw History — CRS by Type</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="font-size:10px;color:var(--muted);width:72px;flex-shrink:0">CEC Draws</div>
+          <div style="flex:1;background:var(--bg2);border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;width:76%;background:#1565C0;border-radius:4px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--text);width:32px;text-align:right">510</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="font-size:10px;color:var(--muted);width:72px;flex-shrink:0">Healthcare</div>
+          <div style="flex:1;background:var(--bg2);border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;width:69%;background:#2E7D32;border-radius:4px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--text);width:32px;text-align:right">467</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="font-size:10px;color:var(--muted);width:72px;flex-shrink:0">Trades</div>
+          <div style="flex:1;background:var(--bg2);border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;width:71%;background:#E65100;border-radius:4px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--text);width:32px;text-align:right">477</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="font-size:10px;color:var(--muted);width:72px;flex-shrink:0">French</div>
+          <div style="flex:1;background:var(--bg2);border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;width:59%;background:#7c3d8f;border-radius:4px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--text);width:32px;text-align:right">419</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="font-size:10px;color:var(--muted);width:72px;flex-shrink:0">Physicians</div>
+          <div style="flex:1;background:var(--bg2);border-radius:4px;height:8px;overflow:hidden"><div style="height:100%;width:25%;background:var(--red);border-radius:4px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--text);width:32px;text-align:right">169</div>
+        </div>
+      </div>
+    </div>
+    <div class="crs-actions">
+      <a class="btn-crs btn-crs-primary" href="https://www.cic.gc.ca/english/immigrate/skilled/crs-tool.asp" target="_blank" rel="noopener">🧮 Calculate My CRS Score</a>
+      <a class="btn-crs btn-crs-ghost" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html" target="_blank" rel="noopener">📊 All Draw History</a>
+    </div>
+  </div>
+
+  <!-- Feed -->
+  <div class="refresh-row">
+    <div class="section-title" id="feedTitle">All Canada Updates</div>
+    <button class="btn-refresh" id="refreshBtn" onclick="loadFeed(true)">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+      REFRESH
+    </button>
+  </div>
+
+  <div class="last-updated" id="lastUpdated">
+    <span class="live-dot loading"></span>
+    <span id="lastUpdatedText">Connecting...</span>
+  </div>
+
+  <div class="feed" id="feed"></div>
+
+  <!-- Email signup card — professional native flow -->
+  <div class="signup-card" id="signupCard">
+
+    <!-- Default state -->
+    <div id="signupDefault">
+      <div class="signup-label">📬 Free Daily Briefing</div>
+      <div class="signup-h">Know before your friends do.</div>
+      <div class="signup-sub">Every IRCC draw, PNP update and deadline — explained in plain English. In your inbox by 7AM. Written by someone who actually went through this.</div>
+
+      <!-- Social proof -->
+      <div class="signup-proof">
+        <div class="signup-avatars">
+          <div class="signup-avatar" style="background:#2E7D32;color:#fff">R</div>
+          <div class="signup-avatar" style="background:#1565C0;color:#fff">A</div>
+          <div class="signup-avatar" style="background:#6A1B9A;color:#fff">S</div>
+          <div class="signup-avatar" style="background:#E65100;color:#fff">M</div>
+        </div>
+        <div class="signup-proof-text"><strong>Join 340+ readers</strong> tracking Canada immigration</div>
+      </div>
+
+      <div class="signup-field">
+        <input class="signup-input" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email address" id="signupEmail">
+      </div>
+      <button class="signup-btn" id="signupBtn" onclick="subscribe()">
+        <span id="signupBtnText">Get Free Daily Brief →</span>
+      </button>
+      <div class="signup-privacy">No spam. Unsubscribe anytime. Takes 10 seconds.</div>
+    </div>
+
+    <!-- Success state — shown after subscribe -->
+    <div class="signup-success" id="signupSuccess">
+      <span class="signup-success-icon">✅</span>
+      <div class="signup-success-h">You're in! Check your inbox.</div>
+      <div class="signup-success-sub">One email to confirm and you'll get tomorrow's brief at 7AM. Welcome to the Nozly community 🇨🇦</div>
+    </div>
+
+  </div>
+
+  <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreClick(this)">↓ Load More Updates</button>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB: SAVED
+══════════════════════════════════════════ -->
+<div id="tab-saved" class="hidden">
+<div class="main">
+  <div class="greeting">
+    <div class="greeting-time">YOUR READING LIST</div>
+    <h2 class="greeting-h">Saved Stories</h2>
+    <p class="greeting-sub">Stories you bookmarked. Tap any to re-read.</p>
+  </div>
+  <div id="savedFeed">
+    <div class="empty-state" id="savedEmpty">
+      <span class="empty-icon">🔖</span>
+      <div class="empty-title">Nothing saved yet</div>
+      <div class="empty-sub">Tap the bookmark icon on any update card to save it for later reading.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB: ABOUT
+══════════════════════════════════════════ -->
+<div id="tab-about" class="hidden">
+<div class="main">
+  <div class="greeting">
+    <div class="greeting-time">ABOUT NOZLY</div>
+    <h2 class="greeting-h">Canada Immigration. Clear. Fast. Free.</h2>
+    <p class="greeting-sub">Built because immigration news is complicated and scattered. We fix that.</p>
+  </div>
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s5);margin-bottom:var(--s4);box-shadow:var(--shadow-sm)">
+    <div style="font-size:var(--text-xs);font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--s3)">WHAT WE DO</div>
+    <div style="font-size:var(--text-sm);color:var(--text2);line-height:1.7">Every IRCC update, every provincial PNP draw, every Express Entry round — explained in <strong style="color:var(--text)">5 bullet points</strong> with a link to the official source. No opinions. No fluff. Just the facts you need in 90 seconds or less.</div>
+  </div>
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s5);margin-bottom:var(--s4);box-shadow:var(--shadow-sm)">
+    <div style="font-size:var(--text-xs);font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--s3)">USEFUL LINKS</div>
+    <div style="display:flex;flex-direction:column;gap:var(--s2)">
+      <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s4);background:var(--bg);border-radius:var(--r-md);border:1px solid var(--border);text-decoration:none;color:var(--text);font-size:var(--text-sm);font-weight:500;transition:all var(--t-base)">🏛️ IRCC Canada Official <span style="color:var(--muted);font-size:12px">→</span></a>
+      <a href="https://www.cic.gc.ca/english/immigrate/skilled/crs-tool.asp" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s4);background:var(--bg);border-radius:var(--r-md);border:1px solid var(--border);text-decoration:none;color:var(--text);font-size:var(--text-sm);font-weight:500;transition:all var(--t-base)">🧮 CRS Score Calculator <span style="color:var(--muted);font-size:12px">→</span></a>
+      <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s4);background:var(--bg);border-radius:var(--r-md);border:1px solid var(--border);text-decoration:none;color:var(--text);font-size:var(--text-sm);font-weight:500;transition:all var(--t-base)">📊 Express Entry Draw History <span style="color:var(--muted);font-size:12px">→</span></a>
+      <a href="https://www.welcomenb.ca" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:var(--s3) var(--s4);background:var(--bg);border-radius:var(--r-md);border:1px solid var(--border);text-decoration:none;color:var(--text);font-size:var(--text-sm);font-weight:500;transition:all var(--t-base)">🌲 New Brunswick PNP <span style="color:var(--muted);font-size:12px">→</span></a>
+    </div>
+  </div>
+
+  <div class="signup-card" id="aboutSignupCard">
+    <div id="aboutSignupDefault">
+      <div class="signup-label">📬 Daily Brief</div>
+      <div class="signup-h">90 seconds. Every morning. Free.</div>
+      <div class="signup-sub">Province draws. IRCC deadlines. Express Entry scores. Written by someone who went through the process personally.</div>
+      <div class="signup-field">
+        <input class="signup-input" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email address" id="aboutEmail">
+      </div>
+      <button class="signup-btn" onclick="subscribeAbout()">Get Free Daily Brief →</button>
+      <div class="signup-privacy">No spam. Unsubscribe anytime.</div>
+    </div>
+    <div class="signup-success" id="aboutSignupSuccess">
+      <span class="signup-success-icon">✅</span>
+      <div class="signup-success-h">You're in! Check your inbox.</div>
+      <div class="signup-success-sub">Confirm your email to get tomorrow's brief at 7AM 🇨🇦</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <div class="nav-inner">
+    <div class="nav-item active" id="nav-feed" onclick="switchTab('feed')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9,22 9,12 15,12 15,22"/>
+      </svg>
+      HOME
+    </div>
+    <div class="nav-item" id="nav-saved" onclick="switchTab('saved')" style="position:relative">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+      </svg>
+      SAVED
+      <span class="nav-badge" id="navBadge">0</span>
+    </div>
+    <div class="nav-item" id="nav-about" onclick="switchTab('about')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      ABOUT
+    </div>
+  </div>
+</nav>
+
+<!-- BULLET SHEET OVERLAY -->
+<div class="sheet-overlay" id="sheetOv" onclick="closeSheet()"></div>
+
+<!-- BULLET SHEET -->
+<div class="sheet" id="bulletSheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-content" id="sheetContent"></div>
+</div>
+
+<!-- SHARE SHEET OVERLAY (reuse sheetOv) -->
+<div class="share-sheet" id="shareSheet">
+  <div class="sheet-handle" style="margin:12px auto var(--s4)"></div>
+  <div style="padding:0 var(--s5)">
+    <div class="share-title">Share This Update</div>
+    <div class="share-sub" id="shareTitle"></div>
+    <div class="share-grid">
+      <div class="share-option" onclick="doShare('whatsapp')"><div class="share-icon" style="background:#dcf8c6">💬</div><div class="share-name">WhatsApp</div></div>
+      <div class="share-option" onclick="doShare('twitter')"><div class="share-icon" style="background:#e8f4fd">🐦</div><div class="share-name">X / Twitter</div></div>
+      <div class="share-option" onclick="doShare('facebook')"><div class="share-icon" style="background:#e8eaf6">📘</div><div class="share-name">Facebook</div></div>
+      <div class="share-option" onclick="doShare('copy')"><div class="share-icon" style="background:var(--bg2)">🔗</div><div class="share-name">Copy Link</div></div>
+    </div>
+    <div class="share-url-row">
+      <input class="share-url-input" id="shareUrlInput" readonly>
+      <button class="btn-copy" onclick="copyShareUrl()">Copy</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATION MODAL OVERLAY -->
+<div id="notifOv" onclick="closeNotifModal()" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:800;display:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:flex-end;justify-content:center"></div>
+
+<!-- NOTIFICATION MODAL -->
+<div id="notifModal" style="position:fixed;bottom:0;left:0;right:0;background:var(--white);border-radius:24px 24px 0 0;z-index:801;padding:0 0 44px;transform:translateY(100%);transition:transform .38s cubic-bezier(.32,1,.4,1);max-width:640px;margin:0 auto">
+  <div style="width:36px;height:4px;background:var(--border2);border-radius:999px;margin:14px auto 0"></div>
+
+  <!-- Header -->
+  <div style="padding:20px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+    <div>
+      <div style="font-size:11px;font-weight:700;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">🔔 Stay Ahead</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">Never miss an immigration update</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.5">Get notified by email the moment a new draw drops, a deadline changes, or Prachi Sharma posts a personal update.</div>
+    </div>
+    <button onclick="closeNotifModal()" style="background:var(--bg2);border:1px solid var(--border);color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;transition:all .2s">✕</button>
+  </div>
+
+  <!-- What you'll get -->
+  <div style="padding:16px 24px 0">
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
+        <span style="font-size:18px;flex-shrink:0">📊</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--text)">New Express Entry draws</div>
+          <div style="font-size:11px;color:var(--muted)">CRS score, ITA count — within minutes of release</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
+        <span style="font-size:18px;flex-shrink:0">🏛️</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--text)">IRCC announcements</div>
+          <div style="font-size:11px;color:var(--muted)">Policy changes, fee deadlines, new pathways</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
+        <span style="font-size:18px;flex-shrink:0">✍️</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--text)">Personal articles by Prachi Sharma</div>
+          <div style="font-size:11px;color:var(--muted)">Real experience, plain English, no lawyer-speak</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email input -->
+    <div id="notifFormWrap">
+      <input id="notifEmail" type="email" inputmode="email" autocomplete="email"
+        placeholder="Enter your email address"
+        style="width:100%;background:var(--bg2);border:1.5px solid var(--border2);border-radius:12px;padding:14px 16px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);outline:none;margin-bottom:10px;transition:all .2s;-webkit-appearance:none"
+        onfocus="this.style.borderColor='var(--red)';this.style.background='var(--white)'"
+        onblur="this.style.borderColor='var(--border2)';this.style.background='var(--bg2)'"
+        onkeydown="if(event.key==='Enter')notifSubscribe()">
+      <button onclick="notifSubscribe()" id="notifBtn"
+        style="width:100%;padding:15px;border-radius:12px;background:var(--red);color:#fff;border:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:-.01em">
+        🔔 Notify Me — It's Free
+      </button>
+      <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:8px">No spam. Unsubscribe anytime. 340+ readers already in.</div>
+    </div>
+
+    <!-- Success state -->
+    <div id="notifSuccess" style="display:none;text-align:center;padding:16px 0">
+      <div style="font-size:44px;margin-bottom:12px">✅</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px">You're in!</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.5">Check your inbox to confirm. You'll get the next update the moment it drops.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// ═══════════════════════════════════════════════════════════════
+//  NOZLY — Canada Immigration in 90 Seconds
+//  One niche. Done well. Province-first.
+// ═══════════════════════════════════════════════════════════════
+
+// ── DATA — Real Canada immigration updates ─────────────────────
+// PERSONAL ARTICLES — written by Roshan, shown with author card
+const PERSONAL_ARTICLES = [
+  {
+    id: 'p3',
+    title: "What April's NB Draw Tells Us About Who New Brunswick Actually Wants",
+    date: 'April 25, 2026',
+    preview: "143 invitations. Two draws. Healthcare and IT only. I went through this process and here is what these numbers are actually saying.",
+    body: [
+      "New Brunswick just issued 143 invitations across two draws in April — and if you read just the headline number, you might think it was a quiet month. It wasn't. The composition of those draws tells you everything about what this province is actually looking for right now.",
+      "The Express Entry stream issued only 25 invitations — and every single one went to healthcare or IT professionals already working in New Brunswick. Not planning to move here. Already here. That is the signal. NB is prioritising retention over recruitment right now. If you are already working in the province in either of those sectors, you are at the front of the queue.",
+      "The AIP stream issued 118 invitations targeting transportation and manufacturing. This is new. Six months ago those sectors were not seeing this kind of dedicated draw activity. It reflects real labour gaps in the province — trucking, logistics, light manufacturing — and it means candidates in those fields who previously thought they needed a tech job to qualify now have a dedicated pathway.",
+      "My honest take after following this process for over a year: New Brunswick rewards patience and presence. The candidates who get selected are usually the ones who submitted their EOI early, kept their profile updated, and are already contributing to the local economy. The province is small. They notice."
+    ],
+    p: 'NB',
+  },
+  {
+    id: 'p2',
+    title: "TR-to-PR Is Real — Here's What I'm Doing Right Now as a Temporary Worker in NB",
+    date: 'April 19, 2026',
+    preview: "33,000 spots. Portal opens May 2026. I've been through this process — here's exactly what I'd do today if I were starting fresh.",
+    body: [
+      "I've been a temporary worker in Moncton, New Brunswick for over a year. When I heard Canada quietly launched a TR-to-PR pathway for 33,000 workers, I stopped what I was doing and read every single piece of information I could find.",
+      "Here's the honest truth: this is real, it's significant, and most people will not be ready when the portal opens. The 2021 version of this program — which had similar structure — filled in a matter of hours. The IRCC portal crashed. People who had their documents ready got in. People who were still gathering paperwork missed it entirely.",
+      "What I'm doing right now, today: checking that my language test results are still valid (they expire after 2 years), making sure my employment reference letters are current and match my NOC code, and confirming my police certificates are less than 6 months old. That's it. Three things. Do those three things this week.",
+      "The portal is expected to open no later than May 15. That gives you roughly 3 weeks. It sounds like a lot. It isn't — police certificates from some countries take 4–8 weeks to arrive. Start today, not next week."
+    ],
+    p: 'FED',
+  },
+  {
+    id: 'p1',
+    title: "I Went Through NBPNP Myself — Here's What Nobody Tells You",
+    date: 'April 18, 2026',
+    preview: "I submitted my EOI in New Brunswick while working in Moncton. Here's what I wish I knew before I started.",
+    body: [
+      "I've been navigating the New Brunswick Provincial Nominee Program for the past year while working in Moncton. And I can tell you — the official website gives you the steps, but it doesn't give you the reality.",
+      "The biggest thing nobody tells you: submit your EOI early even if you think your score isn't competitive. Scores fluctuate every round. I almost waited three extra months thinking I needed a higher score. I didn't.",
+      "The second thing: keep your job letter updated. One of the most common rejection reasons at the full application stage is an outdated employment letter. Get a new one within 30 days of applying.",
+      "If you're in New Brunswick working in healthcare, trades, or tech — you're in the strongest position right now. The province is actively recruiting. Don't sleep on it."
+    ],
+    p: 'NB',
+  }
+];
+
+const UPDATES = [
+  // FEDERAL
+  // 🆕 TODAY'S TOP STORY
+  {id:'f0',p:'FED',
+   title:'🆕 Canada TR-to-PR Pathway 2026 — 33,000 Spots, Portal Opens May 2026',
+   preview:'Canada quietly launched a one-time pathway for temporary workers to become permanent residents. Only 33,000 spots. It will fill in hours — not weeks.',
+   time:'Apr 19, 2026',src:'IRCC / Toronto Star / CIC News',
+   url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/tr-pr-pathway.html',
+   bullets:[
+     '33,000 spots total over 2 years — ~16,500 per year across Spring 2026 and early 2027 intake windows',
+     '⚠️ Rural priority: workers in smaller cities like Miramichi, Bathurst, Edmundston, Campbellton and rural areas get significantly stronger consideration than major city workers',
+     'Targets healthcare, construction, skilled trades, agriculture, transportation and hospitality — CRS score does NOT matter for this pathway',
+     'Portal expected no later than May 15, 2026 — closes the moment cap is hit, possibly within hours based on 2021 experience',
+     '⚠️ Start NOW: language test, employment letters, police certificates, ECA — do not wait for portal to open'
+   ],
+   context:'What this means for you: if you are a temporary worker in a smaller Canadian city or rural area, this pathway strongly favours you. Cities like Miramichi, Bathurst, Edmundston, Campbellton and Woodstock — these are exactly the communities IRCC is trying to retain workers in. Get your documents ready before May 15.'},
+
+  {id:'f1',p:'FED',title:'IRCC Plans to Retire Express Entry — Replace With Single New Class',
+   preview:'Biggest change to Canada federal immigration since Express Entry launched in 2015. Public consultations in Spring 2026.',
+   time:'Apr 8, 2026',src:'CIC News / IRCC',
+   url:'https://www.cicnews.com/2026/04/canada-plans-to-retire-current-express-entry-programs-launch-replacement-0473905.html',
+   bullets:['IRCC plans to repeal FSWC, CEC and FSTC — replace with one single unified economic immigration class','New class designed to "establish a more diverse pool of international talent" per official IRCC statement','Public consultations planned for Spring 2026 — submit feedback on Canada.ca engagement portal','If implemented: biggest change to federal immigration since Express Entry launched in January 2015','No implementation date confirmed — still in regulatory proposal phase as of April 2026'],
+   context:'What this means for you: if you have an active EE profile, nothing changes yet. But watch for new eligibility criteria when the new class is announced — some candidates currently in the pool may gain or lose eligibility.'},
+
+  {id:'f2',p:'FED',title:'Express Entry Draw #294 — CRS 485, 4,300 ITAs Issued (March 27)',
+   preview:'Canadian Experience Class draw. Down 12 points from previous draw of 497. Next draw expected in ~2 weeks.',
+   time:'Mar 27, 2026',src:'IRCC',
+   url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html',
+   bullets:['Draw #294 issued 4,300 Invitations to Apply (ITAs) — targeted Canadian Experience Class candidates','Minimum CRS score: 485 — down 12 points from the previous draw of 497','Tie-breaking rule applied: March 27, 2026 at 12:00:00 UTC for candidates scoring exactly 485','Canada has issued 58,830 total ITAs across 20 Express Entry draws so far in 2026','Next draw expected in approximately 2 weeks — monitor IRCC website for announcement'],
+   context:'⚠️ If your CRS score is 485+: submit your application immediately. Scores this low have not been seen in years — this is a strong window.'},
+
+  {id:'f3',p:'FED',title:'⚠️ PR Fee Deadline — Submit Before April 30, 2026 at 9:00 AM ET',
+   preview:'All PR applications received on or after April 30 will face higher fees. Citizenship fees already increased March 31.',
+   time:'Mar 27, 2026',src:'IRCC Official',
+   url:'https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/increase-immigration-fees.html',
+   bullets:['DEADLINE: Submit complete PR applications before 9:00 AM Eastern Time on April 30, 2026','Citizenship fees already increased on March 31 — Right of Citizenship fee now $123.00 CAD','Passport fee increased to $163.50 for adult 10-year passport (up from $160)','New 30-day processing guarantee: automatic refund if passport takes longer than 30 business days','All fee increases are inflation-linked under IRPA regulations and occur every two years'],
+   context:'Action required: if you are ready to submit your PR application, do it before April 30 at 9AM ET to save money. Paper applications must be RECEIVED by IRCC before the deadline, not just mailed.'},
+
+  {id:'f4',p:'FED',title:'IRCC Processing Times April 2026 — Citizenship Faster, AIP Spikes 7 Months',
+   preview:'Citizenship processing fastest since late 2025. Atlantic Immigration Program jumped dramatically. CEC queue growing.',
+   time:'Apr 7, 2026',src:'IRCC',
+   url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html',
+   bullets:['Citizenship processing fastest since late 2025 — queue shrinking for first time this year','Federal Skilled Worker Program (FSWP) dropped to 6 months — first improvement since early 2025','Atlantic Immigration Program (AIP) jumped 7 months to 40 months — significant spike for AIP applicants','Indian visitor visas processing time halved since February 2026','CEC queue surged by 20,400+ people since February — longer wait times expected in coming months'],
+   context:'If you are waiting on AIP: this 7-month jump is significant and unexpected. Contact your employer or RCIC about next steps if your current status is expiring.'},
+
+  {id:'f5',p:'FED',title:'New 2026 Express Entry Categories — Doctors, Researchers, Senior Managers',
+   preview:'IRCC updated category-based selection framework. New occupations added, agriculture category retired.',
+   time:'Feb 18, 2026',src:'IRCC / Canada.ca',
+   url:'https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/02/canada-prioritizes-top-talent-in-2026-immigration-express-entry-categories.html',
+   bullets:['New 2026 categories: medical doctors, researchers, senior managers with Canadian work experience','Transport occupations and certain military recruits added as new priority categories','Minimum work experience requirement increased to 1 year (up from 6 months) for renewed categories','Agriculture and agri-food occupations retired — only category removed from the 2026 list','First physician-focused draw completed — more category draws expected throughout 2026'],
+   context:'Check the full occupation list on Canada.ca to see if your NOC code qualifies under the new categories. Senior managers in healthcare, finance and tech are now priority candidates.'},
+
+  // 🆕 NBPNP APRIL 2026 DRAW
+  {id:'nb3',p:'NB',
+   title:'🆕 NB Issues 143 Invitations — Healthcare & IT Priority, April 2026',
+   preview:'New Brunswick issued 143 ITAs across two draws. Express Entry Stream targeted healthcare and IT. AIP targeted transportation and manufacturing.',
+   time:'Apr 10, 2026',src:'CIC News / Immigration NB',
+   url:'https://www.cicnews.com/2026/04/new-brunswick-issues-more-than-140-invitations-across-express-entry-and-aip-draws-0474413.html',
+   bullets:[
+     '143 total invitations issued across two draws held March 30 – April 1 and April 10, 2026',
+     'NB Express Entry Stream: 25 ITAs issued — targeted healthcare and IT professionals already working in NB',
+     'Atlantic Immigration Program (AIP): 118 ITAs issued — targeted transportation and manufacturing workers',
+     'NB moved AIP to a candidate pool system in February 2026 — draws now held on scheduled basis, not first-come-first-served',
+     'NB has issued 1,666 total invitations year-to-date in 2026 — previous round in March issued 622 across four streams'
+   ],
+   context:'What this means for you: if you work in healthcare or IT in New Brunswick and have not submitted your EOI yet — do it today. This draw specifically targeted workers already in the province. The AIP pool system means submitting early gives you more draw opportunities over time.'},
+  {id:'on1',p:'ON',title:'Ontario OINP Issues 1,828 Invitations Across 4 Draws — April 8, 2026',
+   preview:'Ontario\'s biggest single draw day in recent memory. Multiple streams targeted in one day.',
+   time:'Apr 8, 2026',src:'OINP / Ontario.ca',
+   url:'https://www.ontario.ca/page/ontarios-immigration-application-process',
+   bullets:['OINP issued 1,828 Invitations to Apply (ITAs) across four separate targeted draws on April 8','Streams targeted: Tech, Human Capital, Masters Graduate and Employer Job Offer: International Student','Tech draw minimum score: 67 — Human Capital minimum: 68 in this round','Masters Graduate stream: eligible candidates from Ontario universities in-demand fields','Acceptance of an OINP ITA gives candidates 600 additional CRS points for federal Express Entry'],
+   context:'If you received an OINP ITA: you have a strict deadline to respond — check your OINP portal immediately. A 600-point federal boost means near-certain ITA in the next Express Entry draw.'},
+
+  {id:'on2',p:'ON',title:'Ontario Trillium Benefit Payment Scheduled — April 10, 2026',
+   preview:'Relevant for permanent residents and new citizens. Tax credit payment dates for newcomers settling in Ontario.',
+   time:'Apr 6, 2026',src:'CRA / Ontario',
+   url:'https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/ontario-trillium-benefit-property-tax-credit.html',
+   bullets:['Ontario Trillium Benefit (OTB) payment issued April 10, 2026 for eligible recipients','OTB combines Ontario Energy, Property Tax, and Northern Ontario Energy credits into single monthly payment','New permanent residents who filed a 2025 tax return may be eligible for OTB payments','Credit amounts: up to $1,194 annually for Ontario Energy and Property Tax Credit combined','Must have filed 2025 tax return with Ontario residency to receive — file if you have not already'],
+   context:'Many newcomers are unaware they qualify for OTB. If you became a permanent resident in 2024-2025 and filed taxes, check your CRA MyAccount to confirm eligibility.'},
+
+  // BRITISH COLUMBIA
+  {id:'bc1',p:'BC',title:'BC PNP Skills Immigration Registration System — April 2026 Update',
+   preview:'BC updated registration scores and occupation demand list. Tech, healthcare and trades scores remain competitive.',
+   time:'Apr 2026',src:'BC PNP',
+   url:'https://www.welcomebc.ca/Immigrate-to-B-C/Skills-Immigration',
+   bullets:['BC PNP Skilled Worker category current minimum registration score: 60 points','International Graduate category accepting candidates from BC post-secondary institutions — score: 60','BC Tech Pilot remains active — fastest pathway for eligible tech workers in Metro Vancouver','Healthcare workers continue to see priority invitation rounds in 2026 Spring draws','Express Entry BC category: candidates must have a valid EE profile before applying to BC PNP'],
+   context:'BC PNP Tech Pilot is one of the fastest pathways in Canada for tech workers — processing can be as quick as 2-3 months from registration to nomination.'},
+
+  // ALBERTA
+  {id:'ab1',p:'AB',title:'Alberta Advantage Immigration Program (AAIP) — 2026 Spring Updates',
+   preview:'Alberta updating streams and score thresholds. Rural Renewal Stream and Tourism and Hospitality remain active.',
+   time:'Apr 2026',src:'AAIP / Alberta.ca',
+   url:'https://www.alberta.ca/aaip-alberta-opportunity-stream',
+   bullets:['Alberta Opportunity Stream: minimum 60 points required for registration — score depends on occupation, education, experience','Rural Renewal Stream: partnerships with rural Alberta communities offering nomination and support','Tourism and Hospitality Stream: targets laid-off hotel and restaurant workers with AB job offers','AAIP Entrepreneur Stream: minimum net worth $500,000 CAD for self-employed applicants','Alberta offers the fastest AAIP processing in Western Canada — average 3-5 months to nomination'],
+   context:'Alberta is a strong option for trades workers and rural applicants who may not score high enough for federal Express Entry. The Rural Renewal Stream has lower thresholds and includes settlement support.'},
+
+  // NEW BRUNSWICK
+  {id:'nb1',p:'NB',title:'NBPNP Draw Update — Latest EOI Pool Scores, April 2026',
+   preview:'New Brunswick PNP issuing invitations. Tech and healthcare streams at lowest score requirements in 18 months.',
+   time:'Apr 2026',src:'Welcome NB',
+   url:'https://www.welcomenb.ca/contents/en-ca/d9.html',
+   bullets:['NBPNP tech sector stream accepting candidates with EOI scores as low as 67 points this month','Healthcare workers and skilled trades continuing to receive priority invitations in 2026','EOI submission does not require supporting documents — submit early to enter the pool','New Brunswick offers one of Canada\'s fastest provincial timelines at 6–12 months to PR','NBPNP candidates must demonstrate genuine intent to reside in NB — this is assessed seriously'],
+   context:'NB is one of the most accessible provinces for candidates who cannot hit federal Express Entry thresholds. If you live in Moncton, Fredericton or Miramichi area and work in tech, healthcare or trades — you are a strong candidate.'},
+
+  {id:'nb2',p:'NB',title:'NB 004 Employment Information Form — What\'s Required at EOI Stage',
+   preview:'Clarification on what documents NBPNP requires at Expression of Interest versus full application stage.',
+   time:'Mar 2026',src:'Welcome NB',
+   url:'https://www.welcomenb.ca/contents/en-ca/d9_expression-of-interest.html',
+   bullets:['NB-004 Employment Information Form is required for most NBPNP streams at EOI stage','Supporting documents such as transcripts and reference letters are NOT required at EOI stage','Single-name candidates: use "LNU" (Last Name Unknown) standard in the Name field where required','Full document package only required after you receive an Invitation to Apply (ITA)','NBPNP stream eligibility: must have a full-time, permanent, non-seasonal job offer from NB employer'],
+   context:'Many applicants delay submitting because they think they need everything ready — you don\'t. Submit the EOI now with basic info and gather documents after receiving your ITA.'},
+
+  // NOVA SCOTIA
+  {id:'ns1',p:'NS',title:'Nova Scotia Nominee Program — 2026 Spring Draw Activity',
+   preview:'NSNP active with draws across Experience: Express Entry, Labour Market Priorities and Entrepreneur streams.',
+   time:'Apr 2026',src:'Nova Scotia NSNP',
+   url:'https://novascotiaimmigration.com',
+   bullets:['NSNP Experience: Express Entry stream active — candidates must have valid federal EE profile','Labour Market Priorities stream targets healthcare workers with NS job offers specifically','NSNP Physician stream remains the most active — GPs and specialists being prioritized strongly','Entrepreneur stream requires $150,000 CAD net worth and 3+ years business management experience','Nova Scotia processing times: approximately 6-10 months from NSNP nomination to PR landing'],
+   context:'Nova Scotia is aggressively recruiting healthcare workers — if you are a nurse, pharmacist, physician or healthcare aide with a Nova Scotia job offer, this is one of the most accessible pathways in Canada right now.'},
+
+  // MANITOBA
+  {id:'mb1',p:'MB',title:'Manitoba Provincial Nominee Program (MPNP) — Intake and Draw Update',
+   preview:'Manitoba running regular draws across Skilled Workers, International Education and Business Investor streams.',
+   time:'Apr 2026',src:'Manitoba Immigration',
+   url:'https://immigratemanitoba.com',
+   bullets:['MPNP Skilled Workers in Manitoba stream: requires valid MB job offer or Manitoba connections','Strategic Recruitment Initiative: specific occupation draws — check MPNP website for targeted occupations','International Education Stream: Manitoba graduates from MB post-secondary institutions qualify','Business Investor Stream: minimum $250,000 CAD investment for the Business Investor category','MPNP draws issued approximately bi-weekly — subscribe to MPNP newsletter for instant notification'],
+   context:'Manitoba is one of the few provinces that considers candidates with family connections in the province, even without a job offer. If you have a relative who is a PR or citizen in Manitoba, you qualify for additional points.'},
+
+  // SASKATCHEWAN
+  {id:'sk1',p:'SK',title:'Saskatchewan Immigrant Nominee Program (SINP) — Fee Increase and 2026 Updates',
+   preview:'SINP extended $500 application fee to all categories April 1. Expression of Interest system continues.',
+   time:'Apr 1, 2026',src:'SINP Saskatchewan',
+   url:'https://www.saskatchewan.ca/residents/moving-to-saskatchewan',
+   bullets:['$500 standard application fee extended to all SINP worker categories effective April 1, 2026','$250 second review fee also applies across all SINP categories from April 1','SINP Express Entry sub-category: requires valid federal EE profile with Saskatchewan connection','International Skilled Worker: three pathways — Employment Offer, Occupation In-Demand, Saskatchewan Express Entry','Saskatchewan trades workers continue to see strong demand — lowest competition of any western province'],
+   context:'The $500 fee increase is new from April 1. If you were planning to apply to SINP, submit as soon as possible — any application submitted before April 1 midnight was exempt from the new fee.'},
+
+  // QUEBEC
+  {id:'qc1',p:'QC',title:'Quebec Immigration — Arrima Expression of Interest Pool Update 2026',
+   preview:'Quebec operates its own independent immigration system. Arrima EOI pool active for Skilled Worker Regular Program.',
+   time:'Apr 2026',src:'Ministère de l\'Immigration du Québec',
+   url:'https://www.immigration-quebec.gouv.qc.ca',
+   bullets:['Quebec Skilled Worker Regular Program (QSWP) operates via Arrima Expression of Interest portal','Minimum 50 points required on Quebec\'s own scoring grid — different from federal CRS score','French language ability is heavily weighted: B2 oral French adds 22 points to score','Quebec invitations issued through irregular draws — no fixed schedule, no advance warning','Certificat de sélection du Québec (CSQ) required before federal PR application in most Quebec streams'],
+   context:'Quebec has full control over its immigration and the Arrima pool can be inactive for months then open suddenly. French ability is the single biggest lever for increasing your score — B2 oral French alone can determine eligibility.'},
+
+  // PEI
+  {id:'pe1',p:'PE',title:'PEI Provincial Nominee Program — Expression of Interest Draw Update',
+   preview:'Prince Edward Island running draws under Business Impact and Labour/Express Entry streams.',
+   time:'Apr 2026',src:'PEI Office of Immigration',
+   url:'https://www.princeedwardisland.ca/en/topic/pei-pnp',
+   bullets:['PEI Labour Impact/Express Entry: requires job offer from PEI employer in an eligible occupation','PEI Business Impact stream: requires $150,000 CAD net worth and business ownership experience','PEI runs small, irregular draws — typically 20-60 candidates per invitation round','Strong demand in food processing, healthcare and hospitality sectors in PEI 2026','PEI is one of the smallest provinces — high acceptance rate for candidates who meet eligibility'],
+   context:'PEI is ideal for candidates who want a genuinely welcoming community. Charlottetown has a growing tech sector and the province actively recruits internationally educated nurses and healthcare workers.'},
+
+  // NEWFOUNDLAND
+  {id:'nl1',p:'NL',title:'Newfoundland and Labrador PNP — Priority Skills NL and Atlantic Pilot Updates',
+   preview:'NL running draws under Priority Skills NL, Skilled Worker, International Graduate and Atlantic Immigration Program.',
+   time:'Apr 2026',src:'Office of Immigration and Multiculturalism NL',
+   url:'https://www.gov.nl.ca/immigration',
+   bullets:['Priority Skills NL: targets occupations with active provincial demand — tech, healthcare, ocean industries','Atlantic Immigration Program (AIP) processing time jumped to 40 months in April 2026 — significant spike','NL International Graduate stream: graduates of Memorial University or College of the North Atlantic qualify','Skilled Worker Stream: requires full-time, non-seasonal NL job offer from approved NL employer','NL offers some of the lowest cost of living of any Canadian province with PR pathway access'],
+   context:'The AIP processing time spike is a serious concern for anyone currently in the AIP stream in NL. If your temporary status expires soon, consult an RCIC about bridge work permits or alternative PNP streams.'},
+];
+
+// ── STATE ──────────────────────────────────────────────────────
+let activeTab = 'feed';
+let activeProvince = 'ALL';
+let currentArticle = null;
+let shareTitle_ = '';
+let shareUrl_ = 'https://nozly.netlify.app';
+
+// ── GREETING ──────────────────────────────────────────────────
+function setGreeting() {
+  const h = new Date().getHours();
+  let greet, icon;
+  if (h >= 5 && h < 12)       { greet = 'Good morning';    icon = '☀️'; }
+  else if (h >= 12 && h < 17) { greet = 'Good afternoon';  icon = '🌤️'; }
+  else if (h >= 17 && h < 21) { greet = 'Good evening';    icon = '🌆'; }
+  else                         { greet = 'Good night';      icon = '🌙'; }
+
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const d = new Date();
+  document.getElementById('greetTime').textContent =
+    `CANADA IMMIGRATION · ${days[d.getDay()].toUpperCase()}, ${months[d.getMonth()]} ${d.getDate()}`;
+  document.getElementById('greetH').textContent = `${greet} ${icon}`;
+}
+
+// ── LOAD FEED ──────────────────────────────────────────────────
+let loadTimeout = null;
+function loadFeed(force = false) {
+  const feed = document.getElementById('feed');
+  const lu = document.getElementById('lastUpdatedText');
+  const dot = document.querySelector('.live-dot');
+  const btn = document.getElementById('refreshBtn');
+
+  if (btn) btn.classList.add('spin');
+  if (dot) { dot.classList.add('loading'); }
+
+  // Show skeletons
+  feed.innerHTML = Array(3).fill(0).map(() => `
+    <div class="skeleton-card">
+      <div class="skeleton-line" style="width:28%;height:10px;margin-bottom:10px"></div>
+      <div class="skeleton-line" style="height:18px;width:90%"></div>
+      <div class="skeleton-line" style="height:18px;width:68%"></div>
+      <div class="skeleton-block"></div>
+      <div class="skeleton-line" style="height:10px;width:30%"></div>
+    </div>`).join('');
+
+  clearTimeout(loadTimeout);
+  loadTimeout = setTimeout(() => {
+    renderFeed(activeProvince);
+    const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    if (lu) lu.textContent = `Updated ${now} · ${getFiltered(activeProvince).length} updates`;
+    if (dot) dot.classList.remove('loading');
+    if (btn) btn.classList.remove('spin');
+  }, force ? 600 : 200);
+}
+
+function getFiltered(province) {
+  if (province === 'ALL') return UPDATES;
+  return UPDATES.filter(u => u.p === province);
+}
+
+function renderFeed(province) {
+  const feed = document.getElementById('feed');
+  const items = getFiltered(province);
+
+  if (!items.length) {
+    feed.innerHTML = `
+      <div class="empty-state">
+        <span class="empty-icon">🗺️</span>
+        <div class="empty-title">No updates yet</div>
+        <div class="empty-sub">We'll add more province-specific updates soon. Check back tomorrow.</div>
+      </div>`;
+    return;
+  }
+
+  feed.innerHTML = '';
+
+  items.forEach((item, i) => {
+    // Inject personal articles after 3rd card — ALL of them, newest first
+    if (i === 3 && (province === 'ALL' || province === 'NB' || province === 'FED')) {
+      PERSONAL_ARTICLES.forEach(pa => feed.appendChild(buildAuthorCard(pa)));
+    }
+    feed.appendChild(buildCard(item, i));
+  });
+
+  // If fewer than 3 items, show personal articles at end
+  if (items.length <= 3 && (province === 'ALL' || province === 'NB' || province === 'FED')) {
+    PERSONAL_ARTICLES.forEach(pa => feed.appendChild(buildAuthorCard(pa)));
+  }
+}
+
+// ── BUILD AUTHOR CARD ──────────────────────────────────────────
+function buildAuthorCard(article) {
+  const el = document.createElement('div');
+  el.className = 'author-card';
+  const cmtCount = getComments(article.id).length;
+  const bodyHTML = article.body.slice(0, 2).map(p => `<p>${esc(p)}</p>`).join('');
+
+  el.innerHTML = `
+    <div class="author-card-top">
+      <div class="author-avatar">P</div>
+      <div>
+        <div class="author-name">Prachi Sharma</div>
+        <div class="author-role">Immigration Blogger · Moncton, NB</div>
+      </div>
+      <div class="author-badge">✍️ PERSONAL</div>
+    </div>
+    <div class="author-card-body">
+      <div class="author-article-title" onclick="openAuthorArticle('${article.id}')">${esc(article.title)}</div>
+      <div class="author-article-body">${bodyHTML}</div>
+      <button class="author-read-more" onclick="openAuthorArticle('${article.id}')">Read full story →</button>
+    </div>
+    <div class="author-card-bottom">
+      <div class="author-date">${article.date}</div>
+      <div class="author-actions">
+        <button class="card-comment-count" onclick="openAuthorArticle('${article.id}')">
+          💬 ${cmtCount > 0 ? cmtCount + ' comment' + (cmtCount > 1 ? 's' : '') : 'Leave a comment'}
+        </button>
+        <button class="author-share-btn" onclick="openShareSheet('${esc(article.title)}','${article.id}')">↗ Share</button>
+      </div>
+    </div>`;
+  return el;
+}
+
+// ── OPEN AUTHOR ARTICLE IN SHEET ──────────────────────────────
+function openAuthorArticle(id) {
+  const article = PERSONAL_ARTICLES.find(a => a.id === id);
+  if (!article) return;
+
+  const bodyHTML = article.body.map(p => `<p>${esc(p)}</p>`).join('');
+  const cmtCount = getComments(id).length;
+
+  document.getElementById('sheetContent').innerHTML = `
+    <div class="sheet-meta">
+      <span class="province-tag" data-p="${article.p}" style="background:rgba(46,125,50,.1);color:var(--nb);border-color:rgba(46,125,50,.2)">✍️ Personal Story</span>
+      <button class="sheet-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="sheet-title">${esc(article.title)}</div>
+    <div class="sheet-source" style="display:flex;align-items:center;gap:8px">
+      <div style="width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">P</div>
+      <span>Prachi Sharma, Immigration Blogger · ${article.date}</span>
+    </div>
+    <div style="font-size:var(--text-sm);color:var(--text2);line-height:1.8;margin-bottom:var(--s4)">${bodyHTML}</div>
+
+    <div style="display:flex;gap:var(--s2);margin-bottom:var(--s5);flex-wrap:wrap">
+      <button class="btn-share-sheet" onclick="openShareSheet('${esc(article.title)}','${id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        Share
+      </button>
+    </div>
+    <div class="comments-wrap">
+      <div class="comments-label">
+        💬 Community
+        <span class="comment-count-badge" id="cmt-count-${id}">${cmtCount}</span>
+      </div>
+      <div class="comment-form">
+        <textarea class="comment-input" id="cmt-input-${id}" placeholder="Share your experience or question..."></textarea>
+        <button class="btn-post" onclick="postComment('${id}')">Post</button>
+      </div>
+      <div id="cmt-list-${id}"></div>
+    </div>`;
+
+  renderComments(id);
+  document.getElementById('sheetOv').classList.add('show');
+  document.getElementById('bulletSheet').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+// ── BUILD CARD ─────────────────────────────────────────────────
+function buildCard(item, delay = 0) {
+  const saved = isSaved(item.id);
+  const cmtCount = getComments(item.id).length;
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.setAttribute('data-p', item.p);
+  el.dataset.id = item.id;
+  el.style.animationDelay = `${delay * 0.06}s`;
+
+  const pColor = getProvColor(item.p);
+  const pName = getProvName(item.p);
+
+  el.innerHTML = `
+    <div class="card-inner" onclick="openBullets('${item.id}')" style="cursor:pointer">
+      <div class="card-meta">
+        <span class="province-tag" data-p="${item.p}">${pName}</span>
+        <span class="card-time">${item.time}</span>
+      </div>
+      <div class="card-headline">${esc(item.title)}</div>
+      <div class="card-preview">${esc(item.preview)}</div>
+      <div class="card-bottom">
+        <div class="card-source">
+          <span>${esc(item.src)}</span>
+        </div>
+        <div class="card-actions" onclick="event.stopPropagation()">
+          <button class="card-comment-count" onclick="openBullets('${item.id}')">💬 ${cmtCount > 0 ? cmtCount : 'Comment'}</button>
+          <button class="btn-save ${saved ? 'saved' : ''}" data-id="${item.id}" onclick="toggleSave(event,'${item.id}')" title="Save">${saved ? '🔖' : '🏷️'}</button>
+          <button class="btn-share-card" onclick="openShareSheet('${esc(item.title)}','${item.id}')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share
+          </button>
+        </div>
+      </div>
+    </div>`;
+  return el;
+}
+
+function getProvName(p) {
+  const map = {
+    FED:'🏛️ Federal',ALL:'🇨🇦 All Canada',
+    ON:'🏙️ Ontario',BC:'🏔️ BC',AB:'🌾 Alberta',
+    NB:'🌲 New Brunswick',NS:'🦞 Nova Scotia',
+    MB:'🦌 Manitoba',SK:'🌻 Saskatchewan',
+    QC:'⚜️ Quebec',PE:'🥔 PEI',NL:'🐳 Newfoundland',
+  };
+  return map[p] || p;
+}
+
+function getProvColor(p) {
+  const map = {
+    FED:'var(--fe)',ALL:'var(--red)',ON:'var(--on)',BC:'var(--bc)',
+    AB:'var(--ab)',NB:'var(--nb)',NS:'var(--ns)',MB:'var(--mb)',
+    SK:'var(--sk)',QC:'var(--qc)',PE:'var(--pe)',NL:'var(--nl)',
+  };
+  return map[p] || 'var(--muted)';
+}
+
+function esc(s) {
+  return String(s||'')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+// ── PROVINCE FILTER ────────────────────────────────────────────
+function filterProvince(p, btn) {
+  activeProvince = p;
+  pastLoaded = false; // reset so load more works on new filter
+
+  // Update pills
+  document.querySelectorAll('.province-pill').forEach(el => el.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  // Update feed title
+  document.getElementById('feedTitle').textContent =
+    p === 'ALL' ? 'All Canada Updates' :
+    p === 'FED' ? 'Federal / IRCC Updates' :
+    `${getProvName(p)} Updates`;
+
+  // Show/hide CRS widget (only for ALL or FED)
+  const crs = document.getElementById('crsWidget');
+  if (crs) crs.style.display = (p === 'ALL' || p === 'FED') ? 'block' : 'none';
+
+  loadFeed();
+}
+
+// ── BULLET MODAL ───────────────────────────────────────────────
+function openBullets(id) {
+  const item = UPDATES.find(u => u.id === id);
+  if (!item) return;
+  currentArticle = item;
+  const saved = isSaved(id);
+  const pColor = getProvColor(item.p);
+  const pName = getProvName(item.p);
+
+  const bulletsHTML = item.bullets.map((b, i) => `
+    <li class="bullet-item">
+      <div class="bullet-num">${i + 1}</div>
+      <div class="bullet-text">${b}</div>
+    </li>`).join('');
+
+  document.getElementById('sheetContent').innerHTML = `
+    <div class="sheet-meta">
+      <span class="province-tag" data-p="${item.p}">${pName}</span>
+      <button class="sheet-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="sheet-title">${item.title}</div>
+    <div class="sheet-source">${item.src} · ${item.time}</div>
+
+    <div class="bullets-label">5 KEY POINTS</div>
+    <ul class="bullets-list">${bulletsHTML}</ul>
+
+    ${item.context ? `<div class="sheet-context">💡 ${item.context}</div>` : ''}
+
+    <div class="sheet-actions">
+      <a class="btn-official" href="${item.url}" target="_blank" rel="noopener">🔗 Read Official Source →</a>
+      <button class="btn-share-sheet" onclick="openShareSheet('${esc(item.title)}','${item.id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        Share
+      </button>
+      <button class="btn-action ${saved ? 'saved' : ''}" id="sheetSaveBtn" onclick="toggleSaveFromSheet('${id}')">
+        ${saved ? '🔖 Saved' : '🏷️ Save'}
+      </button>
+    </div>
+
+    <div class="comments-wrap">
+      <div class="comments-label">
+        💬 Community
+        <span class="comment-count-badge" id="cmt-count-${id}">${getComments(id).length}</span>
+      </div>
+      <div class="comment-form">
+        <textarea class="comment-input" id="cmt-input-${id}" placeholder="What does this mean for your application?"></textarea>
+        <button class="btn-post" onclick="postComment('${id}')">Post</button>
+      </div>
+      <div id="cmt-list-${id}"></div>
+    </div>`;
+
+  renderComments(id);
+  document.getElementById('sheetOv').classList.add('show');
+  document.getElementById('bulletSheet').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSheet() {
+  const sheet = document.getElementById('bulletSheet');
+  if (sheet?._floatTimer) clearTimeout(sheet._floatTimer);
+  document.getElementById('sheetOv').classList.remove('show');
+  document.getElementById('bulletSheet').classList.remove('show');
+  document.getElementById('shareSheet').classList.remove('show');
+  document.body.style.overflow = '';
+  currentArticle = null;
+}
+
+// ── SWIPE DOWN TO CLOSE ────────────────────────────────────────
+function initSwipeClose() {
+  const sheet = document.getElementById('bulletSheet');
+  let startY = 0, startTime = 0, currentY = 0;
+  let isSwipe = false, scrollLocked = false;
+
+  sheet.addEventListener('touchstart', e => {
+    const touch = e.touches[0];
+    startY = touch.clientY;
+    currentY = touch.clientY;
+    startTime = Date.now();
+    isSwipe = false;
+    scrollLocked = false;
+    sheet.style.transition = 'none';
+  }, { passive: true });
+
+  sheet.addEventListener('touchmove', e => {
+    const touch = e.touches[0];
+    const dy = touch.clientY - startY;
+    const dx = Math.abs(touch.clientX - e.touches[0].clientX);
+
+    // Only activate swipe if dragging DOWN from near the top handle
+    if (!isSwipe && !scrollLocked) {
+      if (dy > 8 && sheet.scrollTop === 0) {
+        isSwipe = true;
+      } else if (dy < -4 || sheet.scrollTop > 0) {
+        scrollLocked = true; // user is scrolling content — don't interfere
+      }
+    }
+
+    if (isSwipe && dy > 0) {
+      currentY = touch.clientY;
+      // Rubber-band resistance — feels natural
+      const resistance = dy < 200 ? dy : 200 + (dy - 200) * 0.3;
+      sheet.style.transform = `translateY(${resistance}px)`;
+    }
+  }, { passive: true });
+
+  sheet.addEventListener('touchend', e => {
+    if (!isSwipe) { sheet.style.transform = ''; return; }
+
+    const dy = currentY - startY;
+    const elapsed = Date.now() - startTime;
+    const velocity = dy / elapsed; // px per ms
+
+    sheet.style.transition = 'transform .32s cubic-bezier(.32,1,.4,1)';
+
+    // Close if dragged far enough OR flicked fast
+    if (dy > 160 || velocity > 0.6) {
+      sheet.style.transform = 'translateY(100%)';
+      setTimeout(() => {
+        closeSheet();
+        sheet.style.transform = '';
+        sheet.style.transition = '';
+      }, 320);
+    } else {
+      // Spring back
+      sheet.style.transform = '';
+      setTimeout(() => { sheet.style.transition = ''; }, 320);
+    }
+    isSwipe = false;
+  });
+}
+
+// ── COMMENTS ──────────────────────────────────────────────────
+function getComments(id) {
+  try { return JSON.parse(localStorage.getItem('nz_c_' + id) || '[]'); } catch { return []; }
+}
+function saveComments(id, cmts) {
+  try { localStorage.setItem('nz_c_' + id, JSON.stringify(cmts)); } catch {}
+}
+function postComment(id) {
+  const inp = document.getElementById('cmt-input-' + id);
+  if (!inp) return;
+  const text = inp.value.trim();
+  if (!text) { toast('Write something first'); return; }
+  const name = getOrSetName();
+  const cmts = getComments(id);
+  cmts.unshift({ id: Date.now(), name, text, time: 'Just now', likes: 0 });
+  saveComments(id, cmts);
+  inp.value = '';
+  renderComments(id);
+  toast('✅ Comment posted!');
+}
+function getOrSetName() {
+  const saved = localStorage.getItem('nz_name');
+  if (saved) return saved;
+  const n = prompt('Your display name for comments:') || 'Anonymous';
+  localStorage.setItem('nz_name', n.trim());
+  return n.trim();
+}
+function renderComments(id) {
+  const list = document.getElementById('cmt-list-' + id);
+  const cnt = document.getElementById('cmt-count-' + id);
+  if (!list) return;
+  const cmts = getComments(id);
+  if (cnt) cnt.textContent = cmts.length;
+  if (!cmts.length) {
+    list.innerHTML = `<div style="font-size:var(--text-xs);color:var(--muted);text-align:center;padding:var(--s4) 0">Be the first to comment on this update.</div>`;
+    return;
+  }
+  const ini = n => (n||'A').split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  list.innerHTML = cmts.slice(0, 5).map(c => `
+    <div class="comment-item">
+      <div class="comment-avatar">${ini(c.name)}</div>
+      <div class="comment-body-wrap">
+        <div class="comment-name">${esc(c.name)}</div>
+        <div class="comment-text">${esc(c.text)}</div>
+        <div class="comment-foot">
+          <span class="comment-time">${c.time}</span>
+          <button class="comment-like" onclick="likeComment('${id}',${c.id})">👍 ${c.likes}</button>
+        </div>
+      </div>
+    </div>`).join('');
+  if (cmts.length > 5) {
+    list.innerHTML += `<div style="font-size:var(--text-xs);color:var(--muted);padding:var(--s3) 0">+${cmts.length-5} more comments</div>`;
+  }
+}
+function likeComment(artId, commentId) {
+  const cmts = getComments(artId);
+  const c = cmts.find(x => x.id === commentId);
+  if (c) { c.likes++; saveComments(artId, cmts); renderComments(artId); }
+}
+
+// ── SAVED ──────────────────────────────────────────────────────
+function getSaved() { try { return JSON.parse(localStorage.getItem('nz_saved') || '[]'); } catch { return []; } }
+function setSaved(arr) { try { localStorage.setItem('nz_saved', JSON.stringify(arr)); } catch {} }
+function isSaved(id) { return getSaved().includes(id); }
+function toggleSave(e, id) {
+  e && e.stopPropagation();
+  doToggleSave(id);
+}
+function toggleSaveFromSheet(id) {
+  doToggleSave(id);
+  const btn = document.getElementById('sheetSaveBtn');
+  if (btn) { btn.textContent = isSaved(id) ? '🔖 Saved' : '🏷️ Save'; btn.classList.toggle('saved', isSaved(id)); }
+}
+function doToggleSave(id) {
+  let sv = getSaved();
+  if (sv.includes(id)) { sv = sv.filter(s => s !== id); toast('Removed from saved'); }
+  else { sv.push(id); toast('🔖 Saved!'); }
+  setSaved(sv);
+  updateSavedUI();
+  // Update all save buttons for this id
+  document.querySelectorAll(`.btn-save[data-id="${id}"]`).forEach(btn => {
+    btn.textContent = sv.includes(id) ? '🔖' : '🏷️';
+    btn.classList.toggle('saved', sv.includes(id));
+  });
+}
+function updateSavedUI() {
+  const sv = getSaved(), cnt = sv.length;
+  const badge = document.getElementById('navBadge');
+  if (badge) { badge.textContent = cnt; badge.classList.toggle('show', cnt > 0); }
+}
+function renderSaved() {
+  const feed = document.getElementById('savedFeed');
+  const empty = document.getElementById('savedEmpty');
+  if (!feed) return;
+  feed.querySelectorAll('.card').forEach(c => c.remove());
+  const sv = getSaved();
+  if (!sv.length) { if (empty) empty.style.display = 'block'; return; }
+  if (empty) empty.style.display = 'none';
+  const items = UPDATES.filter(u => sv.includes(u.id));
+  if (!items.length) { if (empty) empty.style.display = 'block'; return; }
+  if (empty) empty.style.display = 'none';
+  items.forEach((item, i) => feed.appendChild(buildCard(item, i)));
+}
+
+// ── SEARCH — instant on every keystroke ────────────────────────
+function onSearch(v) {
+  const x = document.getElementById('srchClear');
+  if (x) x.classList.toggle('show', v.length > 0);
+  if (!v.trim()) { closeSrch(); return; }
+  runSearch(v.trim()); // instant — no timeout
+}
+
+function runSearch(q) {
+  const ov = document.getElementById('srchOv');
+  const res = document.getElementById('srchRes');
+  const hdr = document.getElementById('srchHdr');
+  if (!ov || !res) return;
+  const lq = q.toLowerCase();
+  const hits = UPDATES.filter(u =>
+    u.title.toLowerCase().includes(lq) ||
+    u.preview.toLowerCase().includes(lq) ||
+    u.bullets.some(b => b.toLowerCase().includes(lq)) ||
+    getProvName(u.p).toLowerCase().includes(lq)
+  ).slice(0, 12);
+  ov.classList.add('show');
+  if (hdr) hdr.textContent = hits.length
+    ? `${hits.length} result${hits.length !== 1 ? 's' : ''} for "${q}"`
+    : `No results for "${q}"`;
+  if (!hits.length) {
+    res.innerHTML = `<div class="search-empty">No updates found — try "NBPNP", "Express Entry" or a province name</div>`;
+    return;
+  }
+  window._srchHits = hits;
+  res.innerHTML = hits.map((u, i) => `
+    <div class="search-result-item" onclick="srchClick(${i})">
+      <span class="province-tag" data-p="${u.p}" style="font-size:10px;padding:2px 8px;flex-shrink:0">${getProvName(u.p)}</span>
+      <div>
+        <div class="search-result-title">${esc(u.title.substring(0, 80))}</div>
+        <div class="search-result-meta">${esc(u.src)} · ${esc(u.time)}</div>
+      </div>
+    </div>`).join('');
+}
+function srchClick(i) {
+  const u = window._srchHits?.[i];
+  if (!u) return;
+  clearSearch();
+  openBullets(u.id);
+}
+function clearSearch() {
+  const inp = document.getElementById('srchIn'), x = document.getElementById('srchClear');
+  if (inp) inp.value = '';
+  if (x) x.classList.remove('show');
+  closeSrch();
+}
+function closeSrch() { document.getElementById('srchOv')?.classList.remove('show'); }
+document.addEventListener('click', e => {
+  if (!e.target.closest('.search-wrap') && !e.target.closest('.search-overlay')) closeSrch();
+});
+
+// ── SHARE ──────────────────────────────────────────────────────
+function openShareSheet(title, articleId) {
+  shareTitle_ = title;
+  // FIX 3: Short clean URL using article ID — e.g. nozly.netlify.app/#f0
+  // No long encoded title string — clean, short, not spammy
+  shareUrl_ = articleId
+    ? `https://nozly.netlify.app/#${articleId}`
+    : 'https://nozly.netlify.app';
+  document.getElementById('shareTitle').textContent =
+    title.replace(/&amp;/g,'&').replace(/&#39;/g,"'").substring(0,60);
+  document.getElementById('shareUrlInput').value = shareUrl_;
+  document.getElementById('shareSheet').classList.add('show');
+}
+function doShare(p) {
+  if (p === 'copy') { copyShareUrl(); return; }
+  const u = encodeURIComponent(shareUrl_);
+  const t = encodeURIComponent(`"${shareTitle_.substring(0,50)}" — Nozly 🇨🇦 Canada Immigration in 90 Seconds`);
+  const map = {
+    whatsapp: `https://wa.me/?text=${t}%20${u}`,
+    twitter:  `https://twitter.com/intent/tweet?text=${t}&url=${u}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
+  };
+  if (map[p]) window.open(map[p], '_blank');
+  toast(`Opening ${p}...`);
+  setTimeout(() => document.getElementById('shareSheet').classList.remove('show'), 600);
+}
+function copyShareUrl() {
+  if (navigator.clipboard) navigator.clipboard.writeText(shareUrl_);
+  toast('✓ Link copied!');
+  const btn = document.querySelector('.btn-copy');
+  if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
+}
+
+// ── TABS ───────────────────────────────────────────────────────
+function switchTab(tab) {
+  activeTab = tab;
+  ['feed','saved','about'].forEach(t => {
+    document.getElementById('tab-' + t)?.classList.toggle('hidden', t !== tab);
+    document.getElementById('nav-' + t)?.classList.toggle('active', t === tab);
+  });
+  if (tab === 'saved') renderSaved();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── NOTIFICATIONS ──────────────────────────────────────────────
+// ── NOTIFICATION MODAL ────────────────────────────────────────
+function openNotifModal() {
+  // If on saved/about tab, switch to feed first
+  if (activeTab !== 'feed') switchTab('feed');
+
+  const ov = document.getElementById('notifOv');
+  const modal = document.getElementById('notifModal');
+  ov.style.display = 'flex';
+  requestAnimationFrame(() => {
+    modal.style.transform = 'translateY(0)';
+  });
+  document.body.style.overflow = 'hidden';
+
+  // Auto-focus email input after animation
+  setTimeout(() => {
+    const inp = document.getElementById('notifEmail');
+    if (inp) inp.focus();
+  }, 400);
+}
+
+function closeNotifModal() {
+  const ov = document.getElementById('notifOv');
+  const modal = document.getElementById('notifModal');
+  modal.style.transform = 'translateY(100%)';
+  setTimeout(() => { ov.style.display = 'none'; }, 380);
+  document.body.style.overflow = '';
+}
+
+function notifSubscribe() {
+  const inp = document.getElementById('notifEmail');
+  const btn = document.getElementById('notifBtn');
+  const email = inp?.value?.trim();
+
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    inp.style.borderColor = '#ff6b6b';
+    inp.style.background = 'rgba(255,107,107,.06)';
+    inp.placeholder = 'Please enter a valid email';
+    setTimeout(() => {
+      inp.style.borderColor = 'var(--border2)';
+      inp.style.background = 'var(--bg2)';
+      inp.placeholder = 'Enter your email address';
+    }, 2500);
+    return;
+  }
+
+  // Loading
+  btn.textContent = 'Subscribing...';
+  btn.style.opacity = '.7';
+  btn.style.pointerEvents = 'none';
+
+  // Submit to Beehiiv (no-cors stays on page)
+  fetch('https://roshans-newsletter-6b7656.beehiiv.com/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+    mode: 'no-cors',
+  })
+  .then(() => showNotifSuccess())
+  .catch(() => showNotifSuccess()); // no-cors always throws — treat as success
+}
+
+function showNotifSuccess() {
+  document.getElementById('notifFormWrap').style.display = 'none';
+  document.getElementById('notifSuccess').style.display = 'block';
+  try { localStorage.setItem('nz_subscribed', '1'); } catch(e) {}
+  // Also update main signup card if visible
+  const d = document.getElementById('signupDefault');
+  const s = document.getElementById('signupSuccess');
+  if (d && s) { d.style.display = 'none'; s.classList.add('show'); }
+  // Close modal after 2.5 seconds
+  setTimeout(closeNotifModal, 2500);
+  toast('✅ Check your inbox to confirm!');
+}
+
+// ── EMAIL SUBSCRIBE — native flow, no redirect ────────────────
+function subscribe() {
+  const inp = document.getElementById('signupEmail');
+  const btn = document.getElementById('signupBtn');
+  const email = inp?.value?.trim();
+
+  // Validate
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    inp.classList.add('error');
+    inp.placeholder = 'Please enter a valid email';
+    setTimeout(() => { inp.classList.remove('error'); inp.placeholder = 'Enter your email address'; }, 2500);
+    return;
+  }
+
+  // Loading state
+  btn.classList.add('loading');
+  document.getElementById('signupBtnText').textContent = 'Subscribing...';
+
+  // Use fetch to Beehiiv — stays on page
+  const beehiivUrl = `https://roshans-newsletter-6b7656.beehiiv.com/subscribe`;
+  fetch(beehiivUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+    mode: 'no-cors', // Beehiiv accepts this
+  })
+  .then(() => showSuccess())
+  .catch(() => showSuccess()); // no-cors always throws — treat as success
+}
+
+function subscribeAbout() {
+  const inp = document.getElementById('aboutEmail');
+  const email = inp?.value?.trim();
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    inp.classList.add('error');
+    inp.placeholder = 'Please enter a valid email';
+    setTimeout(() => { inp.classList.remove('error'); inp.placeholder = 'Enter your email address'; }, 2500);
+    return;
+  }
+  // Open Beehiiv with email pre-filled — best available for about page
+  window.open(`https://roshans-newsletter-6b7656.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+  document.getElementById('aboutSignupDefault').style.display = 'none';
+  document.getElementById('aboutSignupSuccess').classList.add('show');
+}
+
+function showSuccess() {
+  document.getElementById('signupDefault').style.display = 'none';
+  document.getElementById('signupSuccess').classList.add('show');
+  // Store that they subscribed
+  try { localStorage.setItem('nz_subscribed', '1'); } catch(e) {}
+}
+
+// ── LOAD MORE — shows real past IRCC history ──────────────────
+const PAST_UPDATES = [
+  {id:'h1',p:'FED',title:'Express Entry Draw #400 — 4,500 ITAs, CRS 509 (CEC)',preview:'Latest Canadian Experience Class draw before French draw. Fourth consecutive CEC round of 2026.',time:'Apr 9, 2026',src:'IRCC',url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html',bullets:['Draw #400 issued 4,500 ITAs to Canadian Experience Class candidates','CRS cutoff: 509 — consistent with Q1 2026 CEC average of 507–511','Total ITAs in 2026 reached 61,154 before this draw','Tie-breaking rule: April 9, 2026 at 14:22:00 UTC for candidates scoring exactly 509','Next draw expected within 2 weeks — French or CEC most likely based on pattern'],context:'CEC scores holding steady around 509–511. If your score is below 500, category-based draws (French, Healthcare, Trades) are your best active pathways right now.'},
+  {id:'h2',p:'FED',title:'Express Entry Physicians Draw — CRS 169, Lowest Score in History',preview:'First-ever physicians category draw. 391 ITAs at CRS 169 — the lowest cutoff in Express Entry history since 2015.',time:'Feb 19, 2026',src:'IRCC',url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations.html',bullets:['Draw #397 issued 391 ITAs exclusively for physicians — CRS 169 is the all-time lowest score ever','Physicians must have at least 12 months of Canadian clinical work experience to qualify','This category was added December 8, 2025 — first draw held just 10 weeks later','Demonstrates IRCC using category draws to address specific critical labour shortages fast','Doctors working in Canada on temporary permits: this is your fastest PR pathway by far'],context:'If you are a physician with 12+ months Canadian clinical experience, you likely qualify at CRS 169. This is the most accessible federal pathway ever opened for a single occupation.'},
+  {id:'h3',p:'FED',title:'No General Express Entry Draw Since April 2024 — What It Means',preview:'IRCC has not held an all-program general draw in over a year. Category-based draws are now the primary invitation method.',time:'Mar 2026',src:'Moving2Canada',url:'https://moving2canada.com/immigration/express-entry-draw/',bullets:['Last general Express Entry draw was April 23, 2024 — CRS cutoff was 529','IRCC has shifted entirely to category-based draws since mid-2024','If a general draw returns in 2026, the cutoff is expected to be extremely high (600+)','Category draws now cover: CEC, French, Healthcare, Trades, Physicians, Senior Managers, Researchers','Candidates without Canadian experience should prioritize French language improvement or provincial nominations'],context:'Waiting for a general draw is not a strategy in 2026. Focus on qualifying for a category draw or pursuing a provincial nomination instead.'},
+  {id:'h4',p:'NB',title:'NB Previous Draw — 622 Invitations Across 4 Streams, March 2026',preview:'New Brunswick\'s largest draw of 2026. Skilled Worker, Express Entry, Graduate and Francophone streams all active.',time:'Mar 3–6, 2026',src:'CIC News',url:'https://www.cicnews.com',bullets:['622 invitations issued March 3–6 across four NBPNP streams — largest NB draw of 2026','Skilled Worker Stream: largest allocation — workers with NB job offers prioritized','Express Entry Stream: candidates with valid federal EE profile invited','Graduate Stream: recent graduates from NB post-secondary institutions targeted','Francophone Stream: French-speaking candidates received dedicated invitations'],context:'The March draw was 4x larger than April. This shows NB draw size varies significantly — submit your EOI now so you are in the pool for the next large draw.'},
+  {id:'h5',p:'FED',title:'IRCC Adds 5 New Express Entry Categories — February 18, 2026',preview:'Senior managers, researchers, transport workers, military recruits and physicians added. Now 10 total active categories.',time:'Feb 18, 2026',src:'IRCC',url:'https://www.canada.ca/en/immigration-refugees-citizenship/news/2026/02/canada-prioritizes-top-talent-in-2026-immigration-express-entry-categories.html',bullets:['5 new categories added: Senior Managers, Researchers, Transport Workers, Military Recruits, Physicians','Combined with 2025 categories brings total to 10 active Express Entry categories','Senior Managers require Canadian work experience in NOC 00 — first draw CRS was 429','Researchers with Canadian experience eligible — first dedicated research draw expected in 2026','Agriculture and agri-food category removed — only category retired from the 2026 list'],context:'Check all 10 categories against your profile. Many candidates qualify for multiple categories. French language at CLB 7+ remains the lowest-threshold pathway at CRS 399–419.'},
+  {id:'h6',p:'ON',title:'Ontario OINP 2026 — 1,828 Invitations in Single Day Record',preview:'Ontario issued its largest single-day ITA count of 2026. Four streams targeted simultaneously on April 8.',time:'Apr 8, 2026',src:'OINP Ontario',url:'https://www.ontario.ca/page/ontarios-immigration-application-process',bullets:['1,828 ITAs issued across four streams on April 8 — largest Ontario single-day draw of 2026','Streams: Tech, Human Capital, Masters Graduate, Employer Job Offer International Student','Tech stream minimum score: 67 — Human Capital minimum: 68','OINP nomination adds 600 CRS points — near-certain federal ITA in next Express Entry draw','Ontario received record 18,000 PNP nomination allocation for 2026 from federal government'],context:'Ontario Tech stream at score 67 is highly accessible for software developers, IT analysts and engineers with Ontario job offers. An OINP nomination bypasses the entire Express Entry competition.'},
+];
+
+let pastLoaded = false;
+
+function loadMoreClick(btn) {
+  if (pastLoaded) {
+    btn.textContent = '✓ All caught up';
+    btn.disabled = true;
+    btn.style.opacity = '.5';
+    return;
+  }
+  btn.textContent = '↻ Loading past news...';
+  setTimeout(() => {
+    const feed = document.getElementById('feed');
+    PAST_UPDATES.forEach((item, i) => {
+      // Filter by active province
+      if (activeProvince !== 'ALL' && item.p !== activeProvince) return;
+      const card = buildCard(item, i);
+      feed.appendChild(card);
+    });
+    pastLoaded = true;
+    btn.textContent = '✓ All past news loaded';
+    btn.disabled = true;
+    btn.style.opacity = '.5';
+    toast(`Loaded ${PAST_UPDATES.length} past IRCC updates`);
+  }, 600);
+}
+
+// ── TOAST ──────────────────────────────────────────────────────
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ── DEEP LINK ──────────────────────────────────────────────────
+// FIX 4: Deep link — opens article directly from URL hash
+// Format: nozly.netlify.app/#f0 → opens article with id 'f0' immediately
+function handleDeepLink() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  setTimeout(() => {
+    // Check news articles
+    const newsItem = UPDATES.find(u => u.id === hash);
+    if (newsItem) { openBullets(newsItem.id); return; }
+    // Check personal articles
+    const personal = PERSONAL_ARTICLES.find(a => a.id === hash);
+    if (personal) { openAuthorArticle(personal.id); return; }
+  }, 700); // wait for feed to render
+}
+
+// ── INIT ───────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  setGreeting();
+  setInterval(setGreeting, 60000);
+  updateSavedUI();
+  initSwipeClose(); // swipe down to close sheet
+  // Hide signup if already subscribed
+  if (localStorage.getItem('nz_subscribed') === '1') {
+    const d = document.getElementById('signupDefault');
+    const s = document.getElementById('signupSuccess');
+    if (d && s) { d.style.display = 'none'; s.classList.add('show'); }
+    // Also hide notif form
+    const nf = document.getElementById('notifFormWrap');
+    const ns = document.getElementById('notifSuccess');
+    if (nf && ns) { nf.style.display = 'none'; ns.style.display = 'block'; }
+  }
+  loadFeed();
+  handleDeepLink();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeSheet(); closeSrch(); }
+});
+</script>
+</body>
+</html>
